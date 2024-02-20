@@ -12,12 +12,29 @@ set cursorline
 set incsearch
 set hlsearch
 
+"""""""""""""" my keybinding """"""""""""""""""
+" Leader key
 let mapleader = "\<Space>"
-
 " Copy to system clipboard
 vnoremap <Leader>y "+y
 " Paste from system clipboard
 nnoremap <Leader>p "+p
+" reload vim with the new configuration
+nnoremap <Space>feR :source $MYVIMRC<CR>
+" save file
+nnoremap <Space>fs :w<CR>
+" open coniguration file
+nnoremap <Space>fed :e ~/.vimrc<CR>
+" delete current buffer
+nnoremap <Space>bd :bdelete<CR>
+" open file
+nnoremap <Space>ff :e<Space>
+" recent opened files
+" list of buffers
+nnoremap <Space>bb :ls<CR>
+"quit vim
+nnoremap <Space>qq :q<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""
 
 set tabstop=4      " Sets the width of a tab to four spaces
 set shiftwidth=4   " Sets the number of spaces to use for each level of indentation
