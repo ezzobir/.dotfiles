@@ -1,1 +1,30 @@
+# open in dark mode
 set recolor true
+
+# previous page
+map <C-h> navigate previous
+
+# next page
+map <C-l> navigate next
+
+# switch between dark and light mode
+map <C-r> recolor
+
+# zoom in
+map <C-i> zoom in
+
+# zoom out
+map <C-o> zoom out
+
+# fit page width
+map w adjust_window width
+
+# full screen
+map f toggle_fullscreen
+
+# hide or show status bar 
+map m toggle_statusbar
+
+# hide or show input bar 
+map b toggle_inputbar
+ 
