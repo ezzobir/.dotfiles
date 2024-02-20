@@ -1,6 +1,12 @@
 # open in dark mode
 set recolor true
 
+# auto adjustment
+set adjust-open "width"
+
+# Switch back to normal mode 
+map <Esc> abort
+
 # previous page
 map <C-h> navigate previous
 
@@ -8,7 +14,7 @@ map <C-h> navigate previous
 map <C-l> navigate next
 
 # switch between dark and light mode
-map <C-r> recolor
+map i recolor
 
 # zoom in
 map <C-i> zoom in
@@ -16,15 +22,30 @@ map <C-i> zoom in
 # zoom out
 map <C-o> zoom out
 
+# hide or show status bar 
+map s toggle_statusbar
+
+# hide or show input bar 
+map m toggle_inputbar
+ 
 # fit page width
 map w adjust_window width
 
+# best fit page
+map b adjust_window best-fit
+
 # full screen
-map f toggle_fullscreen
+# map f toggle_fullscreen
 
-# hide or show status bar 
-map m toggle_statusbar
+# reload
+map r reload
 
-# hide or show input bar 
-map b toggle_inputbar
- 
+# rotate
+map R rotate
+
+# print
+map p print
+
+# index
+map <Tab> index_navigate 
+
