@@ -4,6 +4,11 @@ set recolor true
 # auto adjustment
 set adjust-open "width"
 
+# space between pages
+set page-padding 10
+
+# scroll-step
+
 # Switch back to normal mode 
 map <Esc> abort
 
