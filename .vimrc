@@ -7,7 +7,7 @@ set relativenumber
 set cursorline
 
 " Set JetBrains Nerd Font Mono as the default font
-" set guifont=JetBrains\ Mono\ Medium\ Font:h12
+" set guifont = "SauceCodePro Nerd Font Mono:h11"
 
 set incsearch
 set hlsearch
@@ -15,25 +15,49 @@ set hlsearch
 """""""""""""" my keybinding """"""""""""""""""
 " Leader key
 let mapleader = "\<Space>"
+
 " Copy to system clipboard
 vnoremap <Leader>y "+y
+
 " Paste from system clipboard
 nnoremap <Leader>p "+p
+
 " reload vim with the new configuration
 nnoremap <Space>feR :source $MYVIMRC<CR>
+
 " save file
 nnoremap <Space>fs :w<CR>
-" open coniguration file
+
+" open configuration file
 nnoremap <Space>fed :e ~/.vimrc<CR>
+
 " delete current buffer
 nnoremap <Space>bd :bdelete<CR>
-" open file
-nnoremap <Space>ff :e<Space>
-" recent opened files
+
 " list of buffers
 nnoremap <Space>bb :ls<CR>
+
+" next buffer
+nnoremap <Space>bn :bnext<CR>
+
+" previous buffer
+nnoremap <Space>bp :bprevious<CR>
+
+" open file
+nnoremap <Space>ff :e<Space>
+
+" recent opened files
+
 "quit vim
-nnoremap <Space>qq :q<CR>
+nnoremap <Space>wd :q<CR>
+"
+nnoremap <Space>qq :qa<CR>
+
+" split vim window
+nnoremap <Space>wv :vsplit<CR>
+nnoremap <Space>ws :split<CR>
+
+
 """""""""""""""""""""""""""""""""""""""""""""""
 
 set tabstop=4      " Sets the width of a tab to four spaces
