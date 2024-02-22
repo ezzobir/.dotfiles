@@ -19,6 +19,12 @@ set hlsearch
 " Leader key
 let mapleader = "\<Space>"
 
+" Open command window
+nnoremap <Leader><Leader> :<C-f>
+
+" Open command window
+nnoremap <Space><Space> :<C-f>
+
 " Copy to system clipboard
 vnoremap <Leader>y "+y
 
