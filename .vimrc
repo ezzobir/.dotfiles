@@ -3,13 +3,16 @@ syntax enable
 set background=dark
 
 colorscheme desert
-set relativenumber
+" set number relativenumber
 set cursorline
 
 " Set JetBrains Nerd Font Mono as the default font
-" set guifont = "SauceCodePro Nerd Font Mono:h11"
+set guifont=jetbrainsmononl\ 14
 
+" Set increasing search 
 set incsearch
+
+" Highlight search
 set hlsearch
 
 """""""""""""" my keybinding """"""""""""""""""
@@ -23,39 +26,63 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 
 " reload vim with the new configuration
-nnoremap <Space>feR :source $MYVIMRC<CR>
+nnoremap <Leader>feR :source $MYVIMRC<CR>
 
 " save file
-nnoremap <Space>fs :w<CR>
+nnoremap <Leader>fs :w<CR>
+
+" save all files
+nnoremap <Leader>fS :wa<CR>
 
 " open configuration file
-nnoremap <Space>fed :e ~/.vimrc<CR>
+nnoremap <Leader>fed :e ~/.vimrc<CR>
 
 " delete current buffer
-nnoremap <Space>bd :bdelete<CR>
+nnoremap <Leader>bd :bdelete<CR>
 
 " list of buffers
-nnoremap <Space>bb :ls<CR>
+nnoremap <Leader>bb :ls<CR>
 
 " next buffer
-nnoremap <Space>bn :bnext<CR>
+nnoremap <Leader>bn :bnext<CR>
 
 " previous buffer
-nnoremap <Space>bp :bprevious<CR>
+nnoremap <Leader>bp :bprevious<CR>
+
+" kill all buffers except the buffer am in
+"nnoremap <Leader>bdo :1,9bd<Bar>bfirst<CR> " check it
 
 " open file
-nnoremap <Space>ff :e<Space>
+nnoremap <Leader>ff :e<Space>
 
 " recent opened files
+" i will add it soon
 
-"quit vim
-nnoremap <Space>wd :q<CR>
-"
-nnoremap <Space>qq :qa<CR>
+" toggle number and relative number
+nnoremap <Leader>tnr :call ToggleNumbers()<CR>
+function! ToggleNumbers()
+  if &relativenumber == 0
+    set relativenumber
+    set number
+  else
+    set norelativenumber
+    set nonumber
+  endif
+endfunction
+
+" delete current window
+nnoremap <Leader>wd :q<CR>
 
 " split vim window
-nnoremap <Space>wv :vsplit<CR>
-nnoremap <Space>ws :split<CR>
+nnoremap <Leader>wv :vsplit<CR>
+nnoremap <Leader>ws :split<CR>
+
+" resize the window
+nnoremap <Leader>wi :res+1<CR>
+nnoremap <Leader>wo :res-1<CR>
+
+" quit vim
+nnoremap <Leader>qq :qa<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""
