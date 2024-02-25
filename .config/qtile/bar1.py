@@ -3,7 +3,7 @@ from libqtile.widget.battery import Battery
 from libqtile.widget.clock import Clock
 from libqtile.widget.cpu import CPU
 from libqtile.widget.currentlayout import CurrentLayout
-from libqtile.widget.keyboardlayout import KeyboardLayout
+# from libqtile.widget.keyboardlayout import KeyboardLayout
 from libqtile.widget.groupbox import GroupBox
 from libqtile.widget.memory import Memory
 from libqtile.widget.net import Net
@@ -80,12 +80,12 @@ bar = Bar([
     ),
     right_half_circle(nord_fox['fg_gutter'], nord_fox['black']),
 
-    KeyboardLayout(
-        background=gruvbox['fg3'],
-        configured_keyboards=['fr', 'ara'],
-        display_map={'fr': 'en', 'ara': 'ar'}
+    # KeyboardLayout(
+    #     background=gruvbox['fg3'],
+    #     configured_keyboards=['fr', 'ara'],
+    #     display_map={'fr': 'en', 'ara': 'ar'}
 
-    ),
+    # ),
 
     Clock(
         background=nord_fox['black'],
