@@ -1,0 +1,16 @@
+import = [
+  "~/.config/alacritty/catppuccin-macchiato.toml"
+]
+ 
+[window.padding]
+x = 10
+y = 10
+
+[font]
+normal = { family = "JetBrainsMonoNL", style = "Regular" }
+bold = { style = "Bold" }
+italic = { style = "Italic" }
+bold_italic = { style = "Bold Italic" }
+size = 12
+
+
