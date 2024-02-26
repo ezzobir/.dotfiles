@@ -68,8 +68,8 @@ alias clock='tty-clock -c'
 #see content
 # -----------------------------------------------------
 
-alias ll='ls -l'
-alias la='ls -la'
+alias ll='ls -Fl'
+alias la='ls -Fal'
 
 # -----------------------------------------------------
 # EDIT CONFIG FILES
