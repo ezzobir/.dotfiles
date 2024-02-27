@@ -1,19 +1,26 @@
 
-syntax enable
 set background=dark
 
-colorscheme desert
 " set number relativenumber
 set cursorline
-
-" Set JetBrains Nerd Font Mono as the default font
-set guifont=jetbrainsmononl\ 14
 
 " Set increasing search 
 set incsearch
 
 " Highlight search
 set hlsearch
+
+" Show matching brackets  
+set showmatch
+
+" Set JetBrains Nerd Font Mono as the default font
+set guifont=jetbrainsmononl\ 14
+
+" disable toolbar in gvim
+set guioptions-=T
+
+" disable scroll bar in gvim 
+" set guioptions-=b
 
 """""""""""""" my keybinding """"""""""""""""""
 " Leader key
@@ -99,8 +106,6 @@ set expandtab      " Converts tabs to spaces
 
 au bufnewfile,bufRead bashconfig set filetype=sh
 
-set guioptions-=T
-
 set confirm
 set showmode
 set showcmd
@@ -124,7 +129,7 @@ set laststatus=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set splitbelow splitright
 
 " Remap splits navigation to just CTRL + hjkl
@@ -132,3 +137,72 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+"""""""""""""""""""""" vim plugins """"""""""""""""""""""
+call plug#begin()
+
+" vim theme
+" Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+
+" lightline
+Plug 'itchyny/lightline.vim'
+
+" lightline theme
+Plug 'gkeep/iceberg-dark'
+
+" vimtex
+Plug 'lervag/vimtex'
+
+call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" guvbox-material theme settings
+
+" let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_background = 'medium'
+" let g:gruvbox_material_background = 'hard'
+
+" For better performance
+let g:gruvbox_material_better_performance = 1
+
+" apply the colorscheme
+colorscheme gruvbox-material
+
+
+" lightline theme
+let g:lightline = {'colorscheme' : 'gruvbox_material'}
+
+" enable syntax highlighting
+syntax enable
+
+"""""""""""""""""""""""""""""vimtex-configuration"""""""""""""""""""""""""""""""""""""""
+" This is necessary for VimTeX to load properly. The "indent" is optional.
+" Note that most plugin managers will do this automatically.
+filetype plugin indent on
+
+" This enables Vim's and neovim's syntax-related features. Without this, some
+" VimTeX features will not work (see ":help vimtex-requirements" for more
+" info).
+syntax enable
+
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+" see ":help vimtex-compiler".
+let g:vimtex_compiler_method = 'latexrun'
+
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+let maplocalleader = ","
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
