@@ -1,7 +1,7 @@
 
 set background=dark
 
-" set number relativenumber
+set number relativenumber
 set cursorline
 
 " Set increasing search 
@@ -19,12 +19,18 @@ set guifont=jetbrainsmononl\ 14
 " disable toolbar in gvim
 set guioptions-=T
 
+" notimeout
+set timeoutlen=500
+
 " disable scroll bar in gvim 
 " set guioptions-=b
 
 """""""""""""" my keybinding """"""""""""""""""
 " Leader key
 let mapleader = "\<Space>"
+
+" whichkey
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " Open command window
 nnoremap <Leader><Leader> :<C-f>
@@ -142,39 +148,60 @@ nnoremap <C-l> <C-w>l
 call plug#begin()
 
 " vim theme
-" Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
+Plug 'ghifarit53/tokyonight-vim'
 
 " lightline
 Plug 'itchyny/lightline.vim'
 
-" lightline theme
-Plug 'gkeep/iceberg-dark'
-
 " vimtex
 Plug 'lervag/vimtex'
+
+" start screen
+Plug 'mhinz/vim-startify'
+
+" comment things
+Plug 'tpope/vim-commentary'
+
+" surround
+Plug 'tpope/vim-surround'
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" nerdtree
+Plug 'preservim/nerdtree'
+
+" for colored parentheses
+Plug 'luochen1990/rainbow'
+
+" which key
+Plug 'liuchengxu/vim-which-key'
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" guvbox-material theme settings
+" tokyonight theme
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+" let g:tokyonight_transparent_background = 1
 
-" let g:gruvbox_material_background = 'soft'
-let g:gruvbox_material_background = 'medium'
-" let g:gruvbox_material_background = 'hard'
-
-" For better performance
-let g:gruvbox_material_better_performance = 1
-
-" apply the colorscheme
-colorscheme gruvbox-material
+colorscheme tokyonight
 
 
 " lightline theme
-let g:lightline = {'colorscheme' : 'gruvbox_material'}
+let g:lightline = {'colorscheme' : 'tokyonight'}
 
 " enable syntax highlighting
 syntax enable
+
+" rainbow plugin
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" which key configs
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
 
 """""""""""""""""""""""""""""vimtex-configuration"""""""""""""""""""""""""""""""""""""""
 " This is necessary for VimTeX to load properly. The "indent" is optional.
