@@ -35,9 +35,6 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " Open command window
 nnoremap <Leader><Leader> :<C-f>
 
-" Open command window
-nnoremap <Space><Space> :<C-f>
-
 " Copy to system clipboard
 vnoremap <Leader>y "+y
 
@@ -45,13 +42,13 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>p "+p
 
 " reload vim with the new configuration
-nnoremap <Leader>feR :source $MYVIMRC<CR>
+nnoremap <silent> <Leader>feR :source $MYVIMRC<CR>
 
 " save file
-nnoremap <Leader>fs :w<CR>
+nnoremap <silent> <Leader>fs :w<CR>
 
 " save all files
-nnoremap <Leader>fS :wa<CR>
+nnoremap <silent> <Leader>fS :wa<CR>
 
 " open configuration file
 nnoremap <Leader>fed :e ~/.vimrc<CR>
@@ -73,9 +70,6 @@ nnoremap <Leader>bp :bprevious<CR>
 
 " open file
 nnoremap <Leader>ff :e<Space>
-
-" recent opened files
-" i will add it soon
 
 " toggle number and relative number
 nnoremap <Leader>tnr :call ToggleNumbers()<CR>
@@ -203,6 +197,7 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 
+filetype plugin indent on
 """""""""""""""""""""""""""""vimtex-configuration"""""""""""""""""""""""""""""""""""""""
 " This is necessary for VimTeX to load properly. The "indent" is optional.
 " Note that most plugin managers will do this automatically.
