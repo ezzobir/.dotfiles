@@ -6,7 +6,8 @@
 # Permute CapsLock with R_Ctrl
 # -------------------------------
 
-xmodmap ~/.Xmodmap 
+# xmodmap ~/.Xmodmap 
+
 
 sxhkd &
 brightnessctl set 40% &
@@ -22,6 +23,13 @@ picom &
 # -------------------------------
 
 exec qtile start
+
+
+# -------------------------------
+# Start i3wm
+# -------------------------------
+
+exec i3
 
 # -------------------------------
 # Start EXWM

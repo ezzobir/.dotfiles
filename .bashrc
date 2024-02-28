@@ -75,7 +75,7 @@ alias la='ls -Fal'
 # EDIT CONFIG FILES
 # -----------------------------------------------------
 
-alias confq='nvim ~/.config/qtile/config.py'
-alias confb='nvim ~/.bashrc'
-alias confz='nvim ~/.zshrc'
+alias confq='vim ~/.config/qtile/config.py'
+alias confi3='vim ~/.config/i3/conf
+alias confb='vim ~/.bashrc'
 
