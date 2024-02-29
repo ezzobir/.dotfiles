@@ -4,9 +4,26 @@ super + F6
 super + F5
 	brightnessctl set 1-
 
-
 super + F2
 	pamixer --increase 5
 
 super + F1
 	pamixer --decrease 5
+
+Shift_R + F1
+    cvlc --volume 20 ~/Music/output_audio/*.mp3 & disown
+
+Shift_R + F2
+    killall vlc
+
+XF86AudioPlay
+    playerctl --player=vlc play-pause
+
+XF86AudioPrev
+    playerctl --player=vlc previous
+
+XF86AudioNext
+    playerctl --player=vlc next
+
+super + n ; {e,w,f}
+    {gvim,firefox,thunar}

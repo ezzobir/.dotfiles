@@ -8,14 +8,14 @@
 
 # xmodmap ~/.Xmodmap 
 
-
+xset r rate 200 30 &
 sxhkd &
+xbindkeys &
 brightnessctl set 40% &
 dunst &
 nm-applet &
 pasystray &
 xss-lock -- slock &
-xset r rate 200 30 &
 # nitrogen --restore &
 DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/*.{png,jpg} &
 picom -b &
