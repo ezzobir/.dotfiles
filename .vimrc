@@ -22,6 +22,9 @@ set guioptions-=T
 " notimeout
 set timeoutlen=500
 
+" to make Vim’s yank, delete, and change operations copy into both + and *, and make the put operations paste from +.
+set clipboard=unnamed,unnamedplus
+
 " disable scroll bar in gvim 
 " set guioptions-=b
 
@@ -34,12 +37,6 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " Open command window
 nnoremap <Leader><Leader> :<C-f>
-
-" Copy to system clipboard
-vnoremap <Leader>y "+y
-
-" Paste from system clipboard
-nnoremap <Leader>p "+p
 
 " reload vim with the new configuration
 nnoremap <silent> <Leader>feR :source $MYVIMRC<CR>
@@ -119,9 +116,6 @@ set wrap
 
 " Encoding
 set encoding=utf-8
-
-" Remap ESC to ii
-:imap ii <Esc>
 
 " Always show statusline
 set laststatus=2

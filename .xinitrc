@@ -15,14 +15,14 @@ dunst &
 nm-applet &
 pasystray &
 xss-lock -- slock &
-nitrogen --restore &
+# nitrogen --restore &
 picom &
 
 # -------------------------------
 # Start Qtile
 # -------------------------------
 
-exec qtile start
+# exec qtile start
 
 
 # -------------------------------
