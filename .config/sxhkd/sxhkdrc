@@ -1,19 +1,20 @@
-super + F6
-	brightnessctl set +1
-
-super + F5
-	brightnessctl set 1-
-
-super + F2
-	pamixer --increase 5
-
-super + F1
-	pamixer --decrease 5
-
 F1
     /home/ezzobir/scripts/run_music.sh
+
 F2
     pkill vlc
+
+F4
+	pamixer --decrease 5
+
+F5
+	pamixer --increase 5
+
+F6
+	brightnessctl set 1-
+
+F7
+	brightnessctl set +1
 
 XF86AudioPlay
     playerctl --player=vlc play-pause
