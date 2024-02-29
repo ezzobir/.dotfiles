@@ -10,11 +10,10 @@ super + F2
 super + F1
 	pamixer --decrease 5
 
-Shift_R + F1
-    cvlc --volume 20 ~/Music/output_audio/*.mp3 & disown
-
-Shift_R + F2
-    killall vlc
+F1
+    /home/ezzobir/scripts/run_music.sh
+F2
+    pkill vlc
 
 XF86AudioPlay
     playerctl --player=vlc play-pause
@@ -25,5 +24,3 @@ XF86AudioPrev
 XF86AudioNext
     playerctl --player=vlc next
 
-super + n ; {e,w,f}
-    {gvim,firefox,thunar}

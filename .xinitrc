@@ -10,7 +10,7 @@
 
 xset r rate 200 30 &
 sxhkd &
-xbindkeys &
+# xbindkeys &
 brightnessctl set 40% &
 dunst &
 nm-applet &

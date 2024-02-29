@@ -1,14 +1,17 @@
-"vlc --volume 20 ~/Music/output_audio/*.mp3 & disown"
-   Shift_L+F1
-
-"playerctl --player=vlc play-pause"
-   XF86AudioPlay
-
+# "cvlc --volume 20 ~/Music/output_audio/*.mp3 & disown"
+#     Shift_L + F1
+# 
+# "killall vlc"
+#     Shift_L + F2
+# 
 # "playerctl --player=vlc play-pause"
-#   XF86AudioStop
-
-"playerctl --player=vlc previous"
-   XF86AudioPrev
-
-"playerctl --player=vlc next"
-   XF86AudioNext
+#     XF86AudioPlay
+# 
+# ######## "playerctl --player=vlc play-pause"
+# ########   XF86AudioStop
+# 
+# "playerctl --player=vlc previous"
+#     XF86AudioPrev
+# 
+# "playerctl --player=vlc next"
+#     XF86AudioNext

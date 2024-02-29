@@ -119,16 +119,16 @@ bindsym $mod+Shift+f floating toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "a"
-set $ws2 "z"
-set $ws3 "e"
-set $ws4 "r"
-set $ws5 "t"
-set $ws6 "y"
-set $ws7 "u"
-set $ws8 "i"
-set $ws9 "o"
-set $ws10 "p"
+set $ws1 "1:a"
+set $ws2 "2:z"
+set $ws3 "3:e"
+set $ws4 "4:r"
+set $ws5 "5:t"
+set $ws6 "6:y"
+set $ws7 "7:u"
+set $ws8 "8:i"
+set $ws9 "9:o"
+set $ws10 "10:p"
 
 # switch to workspace
 # bindsym $mod+ampersand workspace number $ws1
@@ -222,19 +222,23 @@ bindsym $mod+Control+Right resize grow width 10 px or 10 ppt
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        position top
-        height 20
-        mode invisible
-        modifier none
-        colors{
-            background #1e1e1e
-        }
-}
+# bar {
+#         status_command i3status
+#         position top
+#         height 18
+#         mode invisible
+#         modifier none
+#         strip_workspace_numbers yes
+#       # padding top[px] right[px] bottom[px] left[px]
+#         padding 1px 1px 1px 0
+#         colors{
+#             background #1e1e1e
+#         }
+# }
 
-# Toggle bar visibility with Mod key + M
-bindsym $mod+m bar mode toggle
+# # Toggle bar visibility with Mod key + M
+# bindsym $mod+m bar mode toggle
+bindsym $mod+m exec --no-startup-id /home/ezzobir/scripts/toggle_polybar.sh
 
 # borders
 for_window [all] border pixel 3
@@ -251,11 +255,24 @@ bindsym $mod+Control+i exec emacs
 bindsym $mod+Control+u exec AppFlowy
 bindsym $mod+Control+y exec pomatez
 
+## mode "mode_launcher" {
+##     bindsym p exec firefox
+##     bindsym o exec telegram-desktop
+##     bindsym i exec emacs
+##     bindsym u exec AppFlowy
+##     bindsym y exec pomatez
+## 
+##     bindsym Escape mode "default"
+##     bindsym Return mode "default"
+## }
+## bindsym $mod+n mode "mode_launcher"
+
+
 assign [class="kitty"] $ws1
-assign [class="emacs"] $ws2
+assign [class="Emacs"] $ws2
 assign [class="firefox"] $ws3
-assign [class="telegram-desktop"] $ws4
-assign [class="signal"] $ws4
+assign [class="TelegramDesktop"] $ws4
+assign [class="Signal"] $ws4
 assign [class="Thunar"] $ws5
 assign [class="JDownloader"] $ws5
 assign [class="pomatez"] $ws6
@@ -264,11 +281,12 @@ assign [class="lyx"] $ws7
 assign [class="libreoffice"] $ws7
 assign [class="texmacs.bin"] $ws7
 assign [class="Inkscape"] $ws8
-assign [class="gimp"] $ws8
-assign [class="audacity"] $ws8
+assign [class="Gimp-2.10"] $ws8
+assign [class="Audacity"] $ws8
 assign [class="obs"] $ws8
 assign [class="kdenlive"] $ws8
 assign [class="mpv"] $ws9
+assign [class="vlc"] $ws9
 assign [class="okular"] $ws10
 
 # Autostart picom when starting the i3 window manager
