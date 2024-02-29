@@ -15,8 +15,10 @@ dunst &
 nm-applet &
 pasystray &
 xss-lock -- slock &
+xset r rate 200 30 &
 # nitrogen --restore &
-picom &
+DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/*.{png,jpg} &
+picom -b &
 
 # -------------------------------
 # Start Qtile
@@ -34,12 +36,6 @@ exec i3
 # -------------------------------
 # Start EXWM
 # -------------------------------
-
-# Run the screen compositor
-# picom &
-
-# Enable screen locking on suspend
-# xss-lock -- slock &
 
 # Fire it up
 # exec dbus-launch --exit-with-session emacs -mm --debug-init -l ~/.config/emacs/desktop.el
