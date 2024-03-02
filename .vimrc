@@ -37,6 +37,7 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " Open command window
 nnoremap <Leader><Leader> :<C-f>
+nmap : <Leader><Leader>i
 
 " reload vim with the new configuration
 nnoremap <silent> <Leader>feR :source $MYVIMRC<CR>
@@ -62,11 +63,14 @@ nnoremap <Leader>bn :bnext<CR>
 " previous buffer
 nnoremap <Leader>bp :bprevious<CR>
 
+" previous buffer
+nnoremap <Leader>bh :Startify<CR>
+
 " kill all buffers except the buffer am in
 "nnoremap <Leader>bdo :1,9bd<Bar>bfirst<CR> " check it
 
 " open file
-nnoremap <Leader>ff :e<Space>
+nmap <Leader>ff <Leader><Leader>ie<Space>
 
 " toggle number and relative number
 nnoremap <Leader>tnr :call ToggleNumbers()<CR>
@@ -144,6 +148,8 @@ Plug 'itchyny/lightline.vim'
 " vimtex
 Plug 'lervag/vimtex'
 
+Plug 'SirVer/ultisnips'
+
 " start screen
 Plug 'mhinz/vim-startify'
 
@@ -152,6 +158,9 @@ Plug 'tpope/vim-commentary'
 
 " surround
 Plug 'tpope/vim-surround'
+
+" dispatch
+Plug 'tpope/vim-dispatch'
 
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -165,6 +174,7 @@ Plug 'luochen1990/rainbow'
 
 " which key
 Plug 'liuchengxu/vim-which-key'
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -188,10 +198,21 @@ syntax enable
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " which key configs
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-
 
 filetype plugin indent on
+
+"""""""""""""""""""""""""""""Ultisnips-configuration"""""""""""""""""""""""""""""""""""
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = 'jk'
+let g:UltiSnipsJumpBackwardTrigger = 'kj'
+" let g:UltiSnipsJumpForwardTrigger  = 'jk'    " use Tab to move forward through tabstops
+" let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
+
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+
+nnoremap <leader>u <Cmd>call UltiSnips#RefreshSnippets()<CR>
+
 """""""""""""""""""""""""""""vimtex-configuration"""""""""""""""""""""""""""""""""""""""
 " This is necessary for VimTeX to load properly. The "indent" is optional.
 " Note that most plugin managers will do this automatically.

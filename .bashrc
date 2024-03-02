@@ -76,6 +76,21 @@ alias la='ls -Fal'
 # -----------------------------------------------------
 
 alias confq='vim ~/.config/qtile/config.py'
-alias confi3='vim ~/.config/i3/conf
+alias confi3='vim ~/.config/i3/conf'
 alias confb='vim ~/.bashrc'
+
+# -----------------------------------------------------
+# youtube-dlp
+# -----------------------------------------------------
+
+alias da='yt-dlp -x --audio-format mp3' 
+alias dap='yt-dlp -x --audio-format mp3 -o "%(title)s.%(ext)s"'
+alias dv='yt-dlp -f mp4'
+alias dvp='yt-dlp -o "%(playlist_index)s_%(title)s.%(ext)s" -f mp4 --yes-playlist'
+
+# -----------------------------------------------------
+# Change wallpaper using feh
+# -----------------------------------------------------
+
+alias cw='DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/*.{png,jpg}'
 
