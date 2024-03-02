@@ -94,3 +94,14 @@ alias dvp='yt-dlp -o "%(playlist_index)s_%(title)s.%(ext)s" -f mp4 --yes-playlis
 
 alias cw='DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/*.{png,jpg}'
 
+# -----------------------------------------------------
+# Use Vi Mode
+# -----------------------------------------------------
+
+set -o vi
+
+# -----------------------------------------------------
+# Use Starship
+# -----------------------------------------------------
+
+eval "$(starship init bash)"

@@ -135,6 +135,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <leader>o <C-w>o
 
 """""""""""""""""""""" vim plugins """"""""""""""""""""""
 call plug#begin()
@@ -191,15 +192,14 @@ colorscheme tokyonight
 " lightline theme
 let g:lightline = {'colorscheme' : 'tokyonight'}
 
-" enable syntax highlighting
-syntax enable
 
 " rainbow plugin
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " which key configs
 
-filetype plugin indent on
+filetype on             " enable filetype detection
+filetype indent on      " load file-specific indentation
 
 """""""""""""""""""""""""""""Ultisnips-configuration"""""""""""""""""""""""""""""""""""
 
@@ -214,9 +214,8 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 nnoremap <leader>u <Cmd>call UltiSnips#RefreshSnippets()<CR>
 
 """""""""""""""""""""""""""""vimtex-configuration"""""""""""""""""""""""""""""""""""""""
-" This is necessary for VimTeX to load properly. The "indent" is optional.
-" Note that most plugin managers will do this automatically.
-filetype plugin indent on
+
+filetype plugin on      " load file-specific plugins
 
 " This enables Vim's and neovim's syntax-related features. Without this, some
 " VimTeX features will not work (see ":help vimtex-requirements" for more
@@ -241,5 +240,9 @@ let g:vimtex_compiler_method = 'latexrun'
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = ","
+
+" Change the key mappings
+" nmap <Space>ll <Plug>vimtex-compile
+" nmap <Space>lv <Plug>vimtex-view
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
