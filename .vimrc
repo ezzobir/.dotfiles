@@ -242,7 +242,10 @@ let g:vimtex_compiler_method = 'latexrun'
 let maplocalleader = ","
 
 " Change the key mappings
-" nmap <Space>ll <Plug>vimtex-compile
-" nmap <Space>lv <Plug>vimtex-view
+nmap <leader>ll <Plug>(vimtex-compile)
+nmap <leader>lv <Plug>(vimtex-view)
+nmap csm <Plug>(vimtex-env-change-math)
+nmap dsm <Plug>(vimtex-env-delete-math)
+nmap tsm <Plug>(vimtex-env-toggle-math)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

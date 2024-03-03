@@ -1,0 +1,4 @@
+/home/ezzobir/my_files/.dotfiles/.config/emacs-configs/myconfig/elpa/vterm-20240102.1640/build/CMakeFiles/vterm-module.dir
+/home/ezzobir/my_files/.dotfiles/.config/emacs-configs/myconfig/elpa/vterm-20240102.1640/build/CMakeFiles/run.dir
+/home/ezzobir/my_files/.dotfiles/.config/emacs-configs/myconfig/elpa/vterm-20240102.1640/build/CMakeFiles/edit_cache.dir
+/home/ezzobir/my_files/.dotfiles/.config/emacs-configs/myconfig/elpa/vterm-20240102.1640/build/CMakeFiles/rebuild_cache.dir
