@@ -1,40 +1,195 @@
 
+" Basic configuration settings
+" -----------------------------------------------
+set nocompatible			    " use vim and not vi
+filetype plugin on		        " load file-specific plugins
+filetype indent on		        " load file-specific indentation
+filetype on				        " enable filetype detection
+set encoding=utf-8
 set background=dark
+set wrap linebreak              " wrap long lines and break lines at words
+set number relativenumber       " shows line numbers
+set cursorline                  " highlight current line
+set ruler	  			        " shows cursor position in current line
+set showcmd				        " shows partially typed commands
+set nohlsearch				    " don't highlight search results
+set incsearch				    " jump to search results as search string is being typed
+set noshowmode                    " disable in favor of lightline.vim's statusline
+set nofoldenable                " don't fold text by default when opening files
+set autowriteall                " write current buffer when moving buffers
+set showmatch                   " Show matching brackets  
+" set visualbell
+set wildmenu
+set laststatus=2
+set confirm
+let mapleader = "\<Space>"
+syntax enable                   " enable syntax highlighting
+" ------------------------------------------------
 
-set number relativenumber
-set cursorline
 
-" Set increasing search 
-set incsearch
-
-" Highlight search
-set hlsearch
-
-" Show matching brackets  
-set showmatch
-
-" Set JetBrains Nerd Font Mono as the default font
+" Font Settings
+"--------------------------------------
 set guifont=jetbrainsmononl\ 14
+"--------------------------------------
 
-" disable toolbar in gvim
+" Gvim settings
+"--------------------------------------
 " default value is guioptions=aegimrLtT
 set guioptions-=T " disable tooltip bar in gvim
 set guioptions-=r " disable scrollbar in gvim
 set guioptions-=m " disable menu in gvim
+"--------------------------------------
 
 " notimeout
+"--------------------------------------
 set timeoutlen=500
-
-" to make Vim’s yank, delete, and change operations copy into both + and *, and make the put operations paste from +.
-set clipboard=unnamed,unnamedplus
-
-"""""""""""""" my keybinding """"""""""""""""""
-" Leader key
-let mapleader = "\<Space>"
-
-" whichkey
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+"--------------------------------------
 
+set tabstop=4      " Sets the width of a tab to four spaces
+set shiftwidth=4   " Sets the number of spaces to use for each level of indentation
+set expandtab      " Converts tabs to spaces
+"--------------------------------------
+
+
+if (has("termguicolors"))
+  " Force true color; see https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+  if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
+  set termguicolors
+endif
+
+
+" OS detection
+" ---------------------------------------------
+if !exists("g:os_current")
+  if system('uname -s') == "Linux\n"
+    let g:os_current = "Linux"
+  elseif system('uname -s') == "Darwin\n"
+    let g:os_current = "Darwin"
+  else
+    echom "Error: the current operating system won't support all of my Vim configurations."
+    let g:os_current = "Other"
+  endif
+endif
+" ---------------------------------------------
+
+" Set Python provider
+" ---------------------------------------------
+if g:os_current == "Linux"
+  let g:python3_host_prog = '/usr/bin/python3'
+elseif g:os_current == "Darwin"
+  let g:python3_host_prog = '/usr/local/bin/python3'
+else
+endif
+" ---------------------------------------------
+
+" Specify plugins using Vim-Plug
+" ---------------------------------------------
+call plug#begin('~/.vim/plugged')
+" Global
+Plug 'junegunn/vim-plug'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'mhinz/vim-startify'
+Plug 'liuchengxu/vim-which-key'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asynctasks.vim'
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'luochen1990/rainbow'
+
+" Filetype-specific
+Plug 'chrisbra/csv.vim'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'lervag/vimtex'
+
+call plug#end()
+" ---------------------------------------------
+
+" colorscheme
+" ---------------------------------------------
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+" let g:tokyonight_transparent_background = 1
+colorscheme tokyonight
+" ---------------------------------------------
+
+
+" BEGIN COPY-PASTE COMMANDS
+" ---------------------------------------------
+if g:os_current == "Linux"
+  set clipboard=unnamed,unnamedplus
+elseif g:os_current == "Darwin"
+  set clipboard=unnamed
+else
+  set clipboard=unnamedplus
+endif
+
+" Make Y work like D or C (not vi compatible)
+noremap Y y$
+
+" stop cc, x, and s from overwriting default register
+nnoremap cc "_cc
+nnoremap x "_x
+nnoremap s "_s
+" ---------------------------------------------
+" END COPY-PASTE COMMANDS
+
+
+" BEGIN NAVIGATION
+" ---------------------------------------------
+" useful for jumping to end of nested snippets
+" the silly jump to the line start via ^ is a hack to ensure cursor exits a possible UltiSnips snippet scope
+inoremap <C-L> <ESC>^$a
+
+" mappings for navigating wrapped lines
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap I g^i
+
+" navigate to line start and end from home row
+" note that this overrides H and L to move the cursor to page top and page bottom
+noremap H g^
+noremap L g$
+
+" Center cursor after various movements
+noremap '' ''zz
+noremap <C-O> <C-O>zz
+noremap <C-I> <C-I>zz
+noremap <C-]> <C-]>zz
+noremap <C-D> <C-D>zz
+noremap <C-U> <C-U>zz
+
+" mappings for faster split window navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+nnoremap <leader>o <C-w>o
+
+" ---------------------------------------------
+" END NAVIGATION
+
+
+" my keybinding
+"--------------------------------------
 " Open command window
 nnoremap <Leader><Leader> :<C-f>
 nmap : <Leader><Leader>i
@@ -98,183 +253,96 @@ nnoremap <Leader>wo :res-1<CR>
 " quit vim
 nnoremap <Leader>qq :qa<CR>
 
+"--------------------------------------
 
-"""""""""""""""""""""""""""""""""""""""""""""""
+" BEGIN MISCELLANEOUS
+" ---------------------------------------------
 
-set tabstop=4      " Sets the width of a tab to four spaces
-set shiftwidth=4   " Sets the number of spaces to use for each level of indentation
-set expandtab      " Converts tabs to spaces
+" For easy macro playback; note that this overrides entering Ex mode with Q
+nnoremap Q @q
 
-au bufnewfile,bufRead bashconfig set filetype=sh
+" Easily pull up the Git command (for use with vim-fugitive)
+nnoremap <leader>g :Git 
 
-set confirm
-set showmode
-set showcmd
+" disable automatic commenting
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o  
 
-set visualbell
-set wildmenu
-set autowriteall
+" close folds with zf
+nnoremap zf zc
 
-" Automatically wrap text that extends beyond the screen length
-set wrap
+" equivalent of `:join` or `J` for lines above cursor
+nnoremap K kdd$
 
-" Encoding
-set encoding=utf-8
+" global substitute
+nnoremap <leader>s :%s/
+vnoremap <leader>s :s/
 
-" Always show statusline
-set laststatus=2
+" set filetype
+nnoremap <leader>ft :set filetype=
 
+" Source my spelling configurations.
+" Important: make sure to call mapleader before sourcing my_spell,
+" so that my_spell mappings use the correct leader key.
+" source ~/.vim/personal/my_spell.vim
+" ---------------------------------------------
+" END MISCELLANEOUS
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Splits and Tabbed Files
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set splitbelow splitright
+" BEGIN PLUGIN CONFIGURATION
+" ---------------------------------------------
+" Disable vim-dispatch's default key mappings
+let g:dispatch_no_maps = 1
 
-" Remap splits navigation to just CTRL + hjkl
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <leader>o <C-w>o
+" Disable csv.vim's key bindings
+let g:no_csv_maps = 1
 
-"""""""""""""""""""""" vim plugins """"""""""""""""""""""
-call plug#begin()
-
-" vim theme
-Plug 'ghifarit53/tokyonight-vim'
-
-" lightline
-Plug 'itchyny/lightline.vim'
-
-" vimtex
-Plug 'lervag/vimtex'
-
-Plug 'SirVer/ultisnips'
-
-" start screen
-Plug 'mhinz/vim-startify'
-
-" comment things
-Plug 'tpope/vim-commentary'
-
-" surround
-Plug 'tpope/vim-surround'
-
-" dispatch
-Plug 'tpope/vim-dispatch'
-
-" fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-" nerdtree
-Plug 'preservim/nerdtree'
-
-" for colored parentheses
-Plug 'luochen1990/rainbow'
-
-" which key
-Plug 'liuchengxu/vim-which-key'
-" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-
-call plug#end()
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" tokyonight theme
-set termguicolors
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-" let g:tokyonight_transparent_background = 1
-
-colorscheme tokyonight
-
-
-" lightline theme
-let g:lightline = {'colorscheme' : 'tokyonight'}
-
-
-" rainbow plugin
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-" which key configs
-
-filetype on             " enable filetype detection
-filetype indent on      " load file-specific indentation
-
-"""""""""""""""""""""""""""""Ultisnips-configuration"""""""""""""""""""""""""""""""""""
-
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = 'jk'
-let g:UltiSnipsJumpBackwardTrigger = 'kj'
-" let g:UltiSnipsJumpForwardTrigger  = 'jk'    " use Tab to move forward through tabstops
-" let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
-
+" UltiSnips Snippet keys
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "jk"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 nnoremap <leader>u <Cmd>call UltiSnips#RefreshSnippets()<CR>
 
-"""""""""""""""""""""""""""""vimtex-configuration"""""""""""""""""""""""""""""""""""""""
+" rainbow plugin
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
-filetype plugin on      " load file-specific plugins
+" AsyncRun and AsyncTaks
+let g:asyncrun_open = 8      " automatically open QuickFix menu with the given number of rows for use with AsyncRun
+let g:asyncrun_trim = 1      " remove empty lines from QuickFix list
+noremap <silent><leader>dq :call asyncrun#stop('')<cr>
+noremap <silent><leader>dp :AsyncTask project-build-serve<cr>
 
-" This enables Vim's and neovim's syntax-related features. Without this, some
-" VimTeX features will not work (see ":help vimtex-requirements" for more
-" info).
-syntax enable
+" Lightline status bar
+" let g:lightline = {'colorscheme' : 'tokyonight'}
+let g:lightline = {
+      \ 'colorscheme': 'tokyonight',
+      \ 'component_function': {
+      \   'fileformat': 'LightlineFileFormat',
+      \   'filetype': 'LightlineFiletype',
+      \   'fileencoding': 'LightlineFileEncoding',
+      \ },
+      \ }
 
-" Viewer options: One may configure the viewer either by specifying a built-in
-" viewer method:
-let g:vimtex_view_method = 'zathura'
+" Hide file format for window widths below 70 cols
+function! LightlineFileFormat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
 
-" Or with a generic interface:
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+" Hide file encoding for window widths below 70 cols
+function! LightlineFileEncoding()
+  return winwidth(0) > 70 ? &fileencoding : ''
+endfunction
 
-" VimTeX uses latexmk as the default compiler backend. If you use it, which is
-" strongly recommended, you probably don't need to configure anything. If you
-" want another compiler backend, you can change it as follows. The list of
-" supported backends and further explanation is provided in the documentation,
-" see ":help vimtex-compiler".
-let g:vimtex_compiler_method = 'latexrun'
+" Hide file type for window widths below 60 cols
+function! LightlineFiletype()
+  return winwidth(0) > 60 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
 
-" Most VimTeX mappings rely on localleader and this can be changed with the
-" following line. The default is usually fine and is the symbol "\".
-let maplocalleader = ","
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
-" Disable VimTeX's default mappings
-" let g:vimtex_mappings_enabled = 0
-"
-" Disable VimTeX's default insert mappings
-" g:vimtex_imaps_enabled = 0
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" ---------------------------------------------
+" END PLUGIN CONFIGURATION
 
-" Don't open QuickFix for warning messages if no errors are present
-" let g:vimtex_quickfix_open_on_warning = 0  
-
-" Change the key mappings
-noremap <leader>c <Cmd>update<CR><Cmd>VimtexCompile<CR>
-nmap <leader>ll <Plug>(vimtex-compile)
-nmap <leader>lv <Plug>(vimtex-view)
-nmap <leader>li <Plug>(vimtex-info)
-
-nmap csm <Plug>(vimtex-env-change-math)
-nmap dsm <Plug>(vimtex-env-delete-math)
-nmap tsm <Plug>(vimtex-env-toggle-math)
-
-" Use `ai` and `ii` for the item text object
-omap ai <Plug>(vimtex-am)
-xmap ai <Plug>(vimtex-am)
-omap ii <Plug>(vimtex-im)
-xmap ii <Plug>(vimtex-im)
-
-" Use `am` and `im` for the inline math text object
-omap am <Plug>(vimtex-a$)
-xmap am <Plug>(vimtex-a$)
-omap im <Plug>(vimtex-i$)
-xmap im <Plug>(vimtex-i$)
-
-"""""""""""""""""""""""""""""Client Server"""""""""""""""""""""""""""""""""""""""
-
-" This will only work if `vim --version` includes `+clientserver`!
-if empty(v:servername) && exists('*remote_startserver')
-  call remote_startserver('VIM')
-endif
