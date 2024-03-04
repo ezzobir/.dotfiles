@@ -17,7 +17,10 @@ set showmatch
 set guifont=jetbrainsmononl\ 14
 
 " disable toolbar in gvim
-set guioptions-=T
+" default value is guioptions=aegimrLtT
+set guioptions-=T " disable tooltip bar
+set guioptions-=r " disable scrollbar
+set guioptions-=m " disable menu
 
 " notimeout
 set timeoutlen=500
@@ -241,11 +244,40 @@ let g:vimtex_compiler_method = 'latexrun'
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = ","
 
+" Disable VimTeX's default mappings
+" let g:vimtex_mappings_enabled = 0
+"
+" Disable VimTeX's default insert mappings
+" g:vimtex_imaps_enabled = 0
+
+" Don't open QuickFix for warning messages if no errors are present
+" let g:vimtex_quickfix_open_on_warning = 0  
+
 " Change the key mappings
+noremap <leader>c <Cmd>update<CR><Cmd>VimtexCompile<CR>
 nmap <leader>ll <Plug>(vimtex-compile)
 nmap <leader>lv <Plug>(vimtex-view)
+nmap <leader>li <Plug>(vimtex-info)
+
 nmap csm <Plug>(vimtex-env-change-math)
 nmap dsm <Plug>(vimtex-env-delete-math)
 nmap tsm <Plug>(vimtex-env-toggle-math)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Use `ai` and `ii` for the item text object
+omap ai <Plug>(vimtex-am)
+xmap ai <Plug>(vimtex-am)
+omap ii <Plug>(vimtex-im)
+xmap ii <Plug>(vimtex-im)
+
+" Use `am` and `im` for the inline math text object
+omap am <Plug>(vimtex-a$)
+xmap am <Plug>(vimtex-a$)
+omap im <Plug>(vimtex-i$)
+xmap im <Plug>(vimtex-i$)
+
+"""""""""""""""""""""""""""""Client Server"""""""""""""""""""""""""""""""""""""""
+
+" This will only work if `vim --version` includes `+clientserver`!
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif
