@@ -18,18 +18,15 @@ set guifont=jetbrainsmononl\ 14
 
 " disable toolbar in gvim
 " default value is guioptions=aegimrLtT
-set guioptions-=T " disable tooltip bar
-set guioptions-=r " disable scrollbar
-set guioptions-=m " disable menu
+set guioptions-=T " disable tooltip bar in gvim
+set guioptions-=r " disable scrollbar in gvim
+set guioptions-=m " disable menu in gvim
 
 " notimeout
 set timeoutlen=500
 
 " to make Vim’s yank, delete, and change operations copy into both + and *, and make the put operations paste from +.
 set clipboard=unnamed,unnamedplus
-
-" disable scroll bar in gvim 
-" set guioptions-=b
 
 """""""""""""" my keybinding """"""""""""""""""
 " Leader key
