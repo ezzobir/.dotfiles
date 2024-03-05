@@ -138,3 +138,9 @@ map ]/ <plug>(vimtex-]/
 map ]* <plug>(vimtex-]star
 map [/ <plug>(vimtex-[/
 map [* <plug>(vimtex-[star
+
+
+nmap <leader>lc <plug>(vimtex-clean)
+nmap <leader>lC <plug>(vimtex-clean-full)
+nmap <leader>lm <plug>(vimtex-imaps-list)
+nmap K <plug>(vimtex-doc-package)
