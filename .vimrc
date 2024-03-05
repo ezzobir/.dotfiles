@@ -111,6 +111,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'luochen1990/rainbow'
+Plug 'wincent/command-t'
 
 " Filetype-specific
 Plug 'chrisbra/csv.vim'
@@ -177,6 +178,8 @@ noremap <C-]> <C-]>zz
 noremap <C-D> <C-D>zz
 noremap <C-U> <C-U>zz
 
+set splitbelow
+
 " mappings for faster split window navigation
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -192,7 +195,7 @@ nnoremap <leader>o <C-w>o
 "--------------------------------------
 " Open command window
 nnoremap <Leader><Leader> :<C-f>
-nmap : <Leader><Leader>i
+" nmap : <Leader><Leader>i
 
 " reload vim with the new configuration
 nnoremap <silent> <Leader>feR :source $MYVIMRC<CR>
@@ -240,6 +243,9 @@ function! ToggleNumbers()
 endfunction
 
 " delete current window
+nnoremap <Leader>tt :term<CR>
+
+" delete current window
 nnoremap <Leader>wd :q<CR>
 
 " split vim window
@@ -271,7 +277,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 nnoremap zf zc
 
 " equivalent of `:join` or `J` for lines above cursor
-nnoremap K kdd$
+" nnoremap K kdd$
 
 " global substitute
 nnoremap <leader>s :%s/
