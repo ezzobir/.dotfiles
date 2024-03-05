@@ -24,7 +24,7 @@ setlocal shiftwidth=4
 let g:tex_indent_items=0
 
 " Compilation
-noremap <leader>r <Cmd>update<CR><Cmd>VimtexCompileSS<CR>
+noremap <leader>c <Cmd>update<CR><Cmd>VimtexCompileSS<CR>
 
 " Write the line "TEX" to the file "/tmp/inverse-search-target.txt".
 " I use the file  "/tmp/inverse-search-target.txt" as part of making inverse 
@@ -33,7 +33,7 @@ call system(printf("echo %s > %s", "TEX", "/tmp/inverse-search-target.txt"))
 
 " BEGIN FORWARD SHOW
 " ---------------------------------------------
-nmap <leader>v <plug>(vimtex-view)
+nmap <leader>r <plug>(vimtex-view)
 " Linux forward search implementation
 if g:os_current == "Linux"
 
