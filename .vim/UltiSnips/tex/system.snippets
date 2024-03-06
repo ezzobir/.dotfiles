@@ -1,0 +1,79 @@
+# Various ``system-style'' commands.
+
+# BEGIN PREAMBLE SNIPPETS
+# --------------------------------------------- #
+snippet pack "\usepackage{}" b
+\usepackage{$1}$0
+endsnippet
+
+snippet nc "\newcommand{}{}" b
+\newcommand{$1}{$2}$0
+endsnippet
+
+snippet rnc "\renewcommand{}{}" b
+\renewcommand{$1}{$2}$0
+endsnippet
+
+snippet sl "\setlength{}{}" b
+\setlength{$1}{$2}$0
+endsnippet
+
+snippet inn "\input{} intended for use in FMF documents" bA
+\input{${1:~/dotfiles/config/latex/templates/}$2}$0
+endsnippet
+# --------------------------------------------- #
+# END PREAMBLE SNIPPETS
+
+# BEGIN SECTIONING SNIPPETS
+# --------------------------------------------- #
+
+snippet sc "\setcounter{}{}" b
+\setcounter{$1}{$2}$0
+endsnippet
+
+snippet p "New Chapter" b
+\part{$1}$0
+endsnippet
+
+snippet c "New chapter" b
+\chapter{$1}$0
+endsnippet
+
+snippet s "New section" b
+\section{$1}$0
+endsnippet
+
+snippet ss "New subsection" b
+\subsection{$1}$0
+endsnippet
+
+snippet sss "New subsubsection" bA
+\subsubsection{$1}$0
+endsnippet
+
+snippet ns "\newsec{} (for equation sheet sections)" bA
+\newsec{$1}$0
+endsnippet
+
+snippet toc "\tableofcontents" b
+\tableofcontents
+endsnippet
+
+snippet lof "\tableofcontents" b
+\listoffigures
+endsnippet
+
+snippet lot "\tableofcontents" b
+\listoftables
+endsnippet
+
+snippet np "\newpage" b
+\newpage
+endsnippet
+
+snippet nl "\newline" b
+\\\\
+endsnippet
+
+# --------------------------------------------- #
+# END SECTIONING SNIPPETS
