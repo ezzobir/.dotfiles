@@ -1,8 +1,6 @@
 F1
-    /home/ezzobir/scripts/run_music.sh
 
-F2
-    pkill vlc
+    DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/*.{png,jpg}
 
 F4
 	pamixer --decrease 5
@@ -15,6 +13,12 @@ F6
 
 F7
 	brightnessctl set +1
+
+F9
+    /home/ezzobir/scripts/run_music.sh
+
+F10
+    pkill vlc
 
 XF86AudioPlay
     playerctl --player=vlc play-pause

@@ -47,6 +47,16 @@ snippet sc "\setcounter{}{}" b
 \setcounter{$1}{$2}$0
 endsnippet
 
+snippet acl2 "\addcontentsline{}{}{}" b
+\addtocontents{toc}{${1:entry text}}
+$0
+endsnippet
+
+snippet acl3 "\addcontentsline{}{}{}" b
+\addcontentsline{toc}{${1:sec name}}{${2:entry text}}
+$0
+endsnippet
+
 snippet p "New Chapter" b
 \part{$1}$0
 endsnippet
