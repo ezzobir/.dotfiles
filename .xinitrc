@@ -60,7 +60,7 @@ pasystray &
 
 xss-lock -- slock &
 
-picom &
+# picom &
 
 # -------------------------------
 # Start Qtile
