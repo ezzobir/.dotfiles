@@ -32,7 +32,7 @@ keys = [
     Key([mod, "control"], "u", lazy.spawn('AppFlowy'), desc="Launch my note taking app"),
     Key([mod, "control"], "y", lazy.spawn('pomatez'), desc="Launch pomatez"),
     Key([mod, "control"], "space", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
-    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
+    # Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
     # Modkey + M to hide/unhide the bar
     Key([mod], "m", lazy.hide_show_bar("top")),
     # A list of available commands that can be bound to keys can be found
@@ -207,8 +207,8 @@ groups.append(
 keys.extend([
     Key(["control", "shift"], "z", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key(["control", "shift"], "e", lazy.group['scratchpad'].dropdown_toggle('mixer')),
-    Key(["control", "shift"], "r", lazy.group['scratchpad'].dropdown_toggle('chat')),
-    Key(["control", "shift"], "t", lazy.group['scratchpad'].dropdown_toggle('bitwarden')),
+    Key(["control", "shift"], "r", lazy.group['scratchpad'].dropdown_toggle('bitwarden')),
+    Key(["control", "shift"], "t", lazy.group['scratchpad'].dropdown_toggle('chat')),
 ])
 # keys.extend([
 #     Key(["control", "shift"], "z", lazy.group['scratchpad'].dropdown_toggle('term')),
