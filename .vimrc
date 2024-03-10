@@ -1,19 +1,19 @@
 
 " Basic configuration settings
 " -----------------------------------------------
-set nocompatible			    " use vim and not vi
-filetype plugin on		        " load file-specific plugins
-filetype indent on		        " load file-specific indentation
-filetype on				        " enable filetype detection
+set nocompatible			          " use vim and not vi
+filetype plugin on		          " load file-specific plugins
+filetype indent on		          " load file-specific indentation
+filetype on				              " enable filetype detection
 set encoding=utf-8
 set background=dark
 set wrap linebreak              " wrap long lines and break lines at words
 set number relativenumber       " shows line numbers
 set cursorline                  " highlight current line
-set ruler	  			        " shows cursor position in current line
-set showcmd				        " shows partially typed commands
-set nohlsearch				    " don't highlight search results
-set incsearch				    " jump to search results as search string is being typed
+set ruler	  			              " shows cursor position in current line
+set showcmd				              " shows partially typed commands
+set nohlsearch				          " don't  highlight search results
+set incsearch				            " jump to search results as search string is being typed
 set noshowmode                    " disable in favor of lightline.vim's statusline
 set nofoldenable                " don't fold text by default when opening files
 set autowriteall                " write current buffer when moving buffers
@@ -95,10 +95,12 @@ Plug 'ghifarit53/tokyonight-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'liuchengxu/vim-which-key'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'skywind3000/asynctasks.vim'
+Plug 'luochen1990/rainbow'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
@@ -106,12 +108,11 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asynctasks.vim'
 Plug 'preservim/nerdtree'
-Plug 'luochen1990/rainbow'
-Plug 'wincent/command-t'
+" Plug 'ycm-core/YouCompleteMe'
+
 
 " Filetype-specific
 Plug 'chrisbra/csv.vim'
@@ -119,6 +120,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'lervag/vimtex'
+Plug 'jceb/vim-orgmode'
 
 call plug#end()
 " ---------------------------------------------
@@ -146,9 +148,9 @@ endif
 noremap Y y$
 
 " stop cc, x, and s from overwriting default register
-nnoremap cc "_cc
-nnoremap x "_x
-nnoremap s "_s
+"nnoremap cc "_cc
+"nnoremap x "_x
+"nnoremap s "_s
 " ---------------------------------------------
 " END COPY-PASTE COMMANDS
 
@@ -207,13 +209,13 @@ nnoremap <silent> <Leader>fs :w<CR>
 nnoremap <silent> <Leader>fS :wa<CR>
 
 " open configuration file
-nnoremap <Leader>fed :e ~/.vimrc<CR>
+nnoremap <Leader>fvd :e ~/.vimrc<CR>
 
 " delete current buffer
 nnoremap <Leader>bd :bdelete<CR>
 
 " list of buffers
-nnoremap <Leader>bb :ls<CR>
+nnoremap <Leader>bb :Buffers<CR>
 
 " next buffer
 nnoremap <Leader>bn :bnext<CR>
@@ -228,7 +230,8 @@ nnoremap <Leader>bh :Startify<CR>
 "nnoremap <Leader>bdo :1,9bd<Bar>bfirst<CR> " check it
 
 " open file
-nmap <Leader>ff <Leader><Leader>ie<Space>
+" nmap <Leader>ff <Leader><Leader>ie<Space>
+nnoremap <Leader>ff :Files<CR>
 
 " toggle number and relative number
 nnoremap <Leader>tnr :call ToggleNumbers()<CR>
@@ -244,6 +247,10 @@ endfunction
 
 " delete current window
 nnoremap <Leader>tt :term<CR>
+
+nnoremap <Leader>Ts :Colors<CR>
+
+nnoremap <Leader>is :Snippets<CR>
 
 " delete current window
 nnoremap <Leader>wd :q<CR>
