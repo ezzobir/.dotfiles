@@ -1,5 +1,5 @@
 import = [
-  "~/.config/alacritty/catppuccin-macchiato.toml"
+  "~/.config/alacritty/tokyonight_night.toml"
 ]
  
 [window.padding]
@@ -7,10 +7,10 @@ x = 10
 y = 10
 
 [font]
-normal = { family = "JetBrainsMonoNL", style = "Regular" }
+normal = { family = "Iosevka", style = "Regular" }
 bold = { style = "Bold" }
 italic = { style = "Italic" }
 bold_italic = { style = "Bold Italic" }
-size = 12
+size = 13
 
 

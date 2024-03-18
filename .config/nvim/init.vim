@@ -30,7 +30,7 @@ syntax enable                   " enable syntax highlighting
 " Font Settings
 "--------------------------------------
 " set guifont=jetbrainsmononl\ 14
-set guifont=Iosevka\ 14
+set guifont=Iosevka:14
 "--------------------------------------
 
 " Gvim settings
@@ -93,7 +93,10 @@ call plug#begin('~/.vim/plugged')
 " Global
 Plug 'junegunn/vim-plug'
 " Plug 'ghifarit53/tokyonight-vim'
-Plug 'madyanov/gruber.vim'
+Plug 'blazkowolf/gruber-darker.nvim'
+" Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+" Plug 'nvim-tree/nvim-web-devicons'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'liuchengxu/vim-which-key'
@@ -120,7 +123,7 @@ Plug 'preservim/nerdtree'
 
 " Filetype-specific
 Plug 'chrisbra/csv.vim'
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'lervag/vimtex'
@@ -135,7 +138,7 @@ call plug#end()
 " let g:tokyonight_enable_italic = 1
 " " let g:tokyonight_transparent_background = 1
 " colorscheme tokyonight
-colorscheme gruber
+colorscheme gruber-darker
 " ---------------------------------------------
 
 
@@ -223,7 +226,7 @@ nnoremap <silent> <Leader>fs :w<CR>
 nnoremap <silent> <Leader>fS :wa<CR>
 
 " open configuration file
-nnoremap <Leader>fvd :e ~/.vimrc<CR>
+nnoremap <Leader>fvd :e ~/.config/nvim/init.vim<CR>
 
 " delete current buffer
 nnoremap <Leader>bd :bdelete<CR>
@@ -341,19 +344,19 @@ noremap <silent><leader>dp :AsyncTask project-build-serve<cr>
 
 " Lightline status bar
 " let g:lightline = {'colorscheme' : 'tokyonight'}
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component_function': {
-      \   'fileformat': 'LightlineFileFormat',
-      \   'filetype': 'LightlineFiletype',
-      \   'fileencoding': 'LightlineFileEncoding',
-      \ },
-      \ }
+ let g:lightline = {
+       \ 'colorscheme': 'wombat',
+       \ 'component_function': {
+       \   'fileformat': 'LightlineFileFormat',
+       \   'filetype': 'LightlineFiletype',
+       \   'fileencoding': 'LightlineFileEncoding',
+       \ },
+       \ }
 
-" Hide file format for window widths below 70 cols
-function! LightlineFileFormat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
+ " Hide file format for window widths below 70 cols
+ function! LightlineFileFormat()
+   return winwidth(0) > 70 ? &fileformat : ''
+ endfunction
 
 " Hide file encoding for window widths below 70 cols
 function! LightlineFileEncoding()
@@ -373,3 +376,10 @@ nmap ga <Plug>(EasyAlign)
 " ---------------------------------------------
 " END PLUGIN CONFIGURATION
 
+" Neovide
+" ---------------------------------------------
+" if exists("g:neovide")
+"     " set guifont=Source\ Code\ Pro:h14
+"     " set guifont=Iosevka:h14
+" endif
+" ---------------------------------------------

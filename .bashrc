@@ -34,6 +34,15 @@ alias yq='yay -Ss'
 alias yr='yay -Rns'
 
 # -----------------------------------------------------
+# paru
+# -----------------------------------------------------
+
+alias pu='paru -Sua'
+alias pi='paru -S'
+alias pq='paru -Ss'
+alias pr='paru -Rns'
+
+# -----------------------------------------------------
 #terminal
 # -----------------------------------------------------
 
@@ -44,13 +53,13 @@ alias e='exit'
 # vim
 # -----------------------------------------------------
 
-alias v='vim'
+alias vi='vim'
 
 # -----------------------------------------------------
 # neovim
 # -----------------------------------------------------
 
-alias nv='nvim'
+alias v='nvim'
 
 # -----------------------------------------------------
 # emacs
@@ -75,9 +84,11 @@ alias la='ls -FAl'
 # EDIT CONFIG FILES
 # -----------------------------------------------------
 
-alias confq='vim ~/.config/qtile/config.py'
-alias confi3='vim ~/.config/i3/conf'
-alias confb='vim ~/.bashrc'
+alias confa='nvim ~/.config/alacritty/alacritty.toml'
+alias confb='nvim ~/.bashrc'
+alias confi3='nvim ~/.config/i3/conf'
+alias confp='nvim ~/.config/picom/picom.conf'
+alias confq='nvim ~/.config/qtile/config.py'
 
 # -----------------------------------------------------
 # Use Zathura For PDF
@@ -116,4 +127,4 @@ set -o vi
 # Use Starship
 # -----------------------------------------------------
 
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
