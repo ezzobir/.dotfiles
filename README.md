@@ -3,8 +3,8 @@ This is my dotfiles for my programms that I use
 
 ## My OS
 
-I use [arch linux](www.archlinux.org).
-Other Distribution I Love: [Void Linux](www.voidlinux.org) and [Gnu Guix System](guix.gnu.org)
+I use [Arch Linux](https://archlinux.org/).
+Other Distribution I Love: [Void Linux](https://voidlinux.org/) and [Gnu Guix System](https://guix.gnu.org/)
 
 ## Desktop Envirenment
 
