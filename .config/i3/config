@@ -331,15 +331,15 @@ for_window [class="okular"] move to workspace $ws10
 exec_always --no-startup-id picom -b
 
 exec firefox
-exec AppFlowy
 exec telegram-desktop
-# exec emacs
+exec AppFlowy
 exec pomatez
+# exec emacs
 # exec okular
-exec --no-startup-id "rofi -modi drun,run -show drun"
+exec --no-startup-id launcher_t2
 
 
-# gruvbox theme
+# start gruvbox theme
 ##############################################################################
 
 # Color binds
@@ -356,6 +356,8 @@ client.focused           $col_focused           $col_focused           $col_text
 client.focused_inactive  $col_focused_inactive  $col_focused_inactive  $col_text_dark   $col_focused_inactive  $col_focused_inactive
 client.unfocused         $col_unfocused_border  $col_unfocused         $col_text_light  $col_unfocused         $col_unfocused
 client.urgent            $col_text_dark         $col_urgent            $col_text_dark   $col_urgent            $col_urgent
+##############################################################################
+# end gruvbox theme
 
 #start of window title bars & borders section
 ##############################################################################
