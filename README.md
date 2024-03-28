@@ -17,7 +17,13 @@ I use both emacs(spacemacs) and vim(spacevim) for editing code (and writing docu
 
 ## Screenshots
 
-![screenshot for qtile wm running spacemacs](./screenshots/qtile_and_spacemacs.png "Qtile running spacemacs")
+- here polybar on the top, appflowy at right and pomatez at left 
+![screenshot for i3  wm running polybar, appflwoy and pomatez](./screenshots/appflowy_pomatez_rofimenu.png "i3 running appflowy")
+- here i3 wm running spacemacs
+![screenshot for i3  wm running spacemacs](./screenshots/spacemacs.png "i3 running spacemacs")
+
+
+
 
 ## Other programms I use
 
