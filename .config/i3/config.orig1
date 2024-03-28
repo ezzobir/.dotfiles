@@ -59,7 +59,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-# bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -121,27 +121,27 @@ bindsym $mod+Shift+f floating toggle
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+# set $ws1 "1"
+# set $ws2 "2"
+# set $ws3 "3"
+# set $ws4 "4"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
 
-# set $ws1 "1:  "
-# set $ws2 "2: "
-# set $ws3 "3: "
-# set $ws4 "4: "
-# set $ws5 "5: "
-# set $ws6 "6: "
-# set $ws7 "7: "
-# set $ws8 "8: "
-# set $ws9 "9: "
-# set $ws10 "10: "
+set $ws1 "1:  "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10: "
 
 # set $ws1 "a"
 # set $ws2 "z"
@@ -339,55 +339,83 @@ exec pomatez
 exec --no-startup-id "rofi -modi drun,run -show drun"
 
 
-# gruvbox theme
+
+
 ##############################################################################
 
-# Color binds
-set $col_focused #e78a4e
-set $col_focused_inactive #d8a657
-set $col_unfocused #3c3836
-set $col_text_dark #32302f
-set $col_text_light #d4be98
-set $col_urgent #ea6962
-set $col_unfocused_border #252423
+#######
+#THEME#
+#######
 
-# class                  border                 background             text             indicator              child_border
-client.focused           $col_focused           $col_focused           $col_text_dark   $col_focused           $col_focused
-client.focused_inactive  $col_focused_inactive  $col_focused_inactive  $col_text_dark   $col_focused_inactive  $col_focused_inactive
-client.unfocused         $col_unfocused_border  $col_unfocused         $col_text_light  $col_unfocused         $col_unfocused
-client.urgent            $col_text_dark         $col_urgent            $col_text_dark   $col_urgent            $col_urgent
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+#start of bar section
+bar {
+    position top
+    # height 18
+    # mode invisible
+    modifier none
+    strip_workspace_numbers yes
+    # position bottom
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    colors {
+        # bar background color
+        background $bg
+        # text color used for blocks that do not have a color specified.
+        statusline $yellow
+        # workspaces section            
+        #                    border  backgr. text
+        focused_workspace    $aqua $aqua $darkgray
+        inactive_workspace   $darkgray $darkgray $yellow
+        active_workspace     $darkgray $darkgray $yellow
+        urgent_workspace     $red $red $bg
+    }
+}
+
+# Toggle bar visibility with Mod key + M
+bindsym $mod+m bar mode toggle
+
+#################### Polybar ##############################
+# bindsym $mod+m exec --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+###########################################################
+#end of bar section
 
 #start of window title bars & borders section
-##############################################################################
 
-# Titlebar
-title_align center
+# green gruvbox
+# class                 border|backgr|text|indicator|child_border
+#client.focused          $green $green $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
 
-# Borders
-default_border pixel 1
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $blue $blue $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+
+# borders
+for_window [all] border pixel 3
 smart_borders on
 
-# Gaps
+# gaps
+gaps inner 7
 smart_gaps on
-gaps inner 4
-gaps outer 3
-##############################################################################
+
 #end of window title bars & borders section
+################################################################################
 
-# start rofi
-##############################################################################
-bindsym $mod+d exec --no-startup-id launcher_t2
-bindsym $mod+x exec --no-startup-id powermenu_t1
-##############################################################################
-# end rofi
 
-# start polybar
-##########################################################
-bindsym $mod+m exec --no-startup-id $HOME/scripts/toggle_polybar.sh
-###########################################################
-# end polybar
 
-# Screenshot
-###########################################################
-bindsym Print exec --no-startup-id $HOME/.config/rofi/applets/bin/screenshot.sh
-###########################################################

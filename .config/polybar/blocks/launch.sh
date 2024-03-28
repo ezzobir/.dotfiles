@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-dir="$HOME/.config/polybar"
-themes=(`ls --hide="launch.sh" $dir`)
-style="blocks"
+# Add this script to your wm startup file.
+
+DIR="$HOME/.config/polybar/blocks"
 
 # Terminate already running bar instances
 killall -q polybar
@@ -11,5 +11,4 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch the bar
-polybar -q main -c "$dir/$style/config.ini" &	
-
+polybar -q main -c "$DIR"/config.ini &

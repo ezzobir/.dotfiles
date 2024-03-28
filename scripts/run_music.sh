@@ -12,4 +12,5 @@ cd "$mp3_directory"
 
 # Play all MP3 files in the background
 cvlc *.mp3 &
+# cvlc --playlist-autostart "$(ls -1 ./*.mp3 | shuf)"
 

@@ -1,7 +1,7 @@
 import = [
-  "~/.config/alacritty/tokyonight_night.toml"
+  "~/.config/alacritty/gruvbox_dark.toml"
 ]
- 
+
 [window.padding]
 x = 10
 y = 10
@@ -13,4 +13,13 @@ italic = { style = "Italic" }
 bold_italic = { style = "Bold Italic" }
 size = 13
 
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Alt"
 
