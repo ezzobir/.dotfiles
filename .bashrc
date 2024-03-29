@@ -10,6 +10,12 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 # -----------------------------------------------------
+# favorite editor
+# -----------------------------------------------------
+
+export EDITOR=vim
+
+# -----------------------------------------------------
 # This for rofi
 # -----------------------------------------------------
 
@@ -122,6 +128,19 @@ alias cw='DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/
 # -----------------------------------------------------
 
 set -o vi
+
+
+# -----------------------------------------------------
+# To Let yazi file manager change the directory 
+# -----------------------------------------------------
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # -----------------------------------------------------
 # Use Starship

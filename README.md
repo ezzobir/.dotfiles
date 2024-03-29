@@ -27,6 +27,9 @@ I use both emacs(spacemacs) and vim(spacevim) for editing code (and writing docu
 
 ## Other programms I use
 
+- alacritty (terminal emulator)
+- yazi (terminal file manager)
+- zellij (terminal multiplexer)
 - firefox and qutebrowser (browser)
 - neomutt (email client)
 - mpv (video player)

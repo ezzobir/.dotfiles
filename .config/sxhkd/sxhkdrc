@@ -1,31 +1,35 @@
-F1
+super + F1
 
     DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/*.{png,jpg}
 
-F4
+super + F4
 	pamixer --decrease 5
 
-F5
+super + F5
 	pamixer --increase 5
 
-F6
+super + F6
 	brightnessctl set 1-
 
-F7
+super + F7
 	brightnessctl set +1
 
-F9
-    /home/ezzobir/scripts/run_music.sh
+super + F8
+    mpd &
 
-F10
-    pkill vlc
+super + F9
+    killall mpd
+
+super + F10
+    playerctl --player=mpd play-pause
+
 
 XF86AudioPlay
-    playerctl --player=vlc play-pause
+    playerctl play-pause
 
 XF86AudioPrev
-    playerctl --player=vlc previous
+    playerctl previous
 
 XF86AudioNext
-    playerctl --player=vlc next
+    playerctl next
 
