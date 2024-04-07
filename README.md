@@ -33,7 +33,8 @@ I use both emacs(spacemacs) and vim(spacevim) for editing code (and writing docu
 - firefox and qutebrowser (browser)
 - neomutt (email client)
 - mpv (video player)
-- mpd (audio player)
+- [mpd](https://github.com/MusicPlayerDaemon/MPD)+[mpc](https://github.com/MusicPlayerDaemon/mpc)+[ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)+[mpDris2](https://github.com/eonpatapon/mpDris2) (audio player)
 - feh and nsxiv (image viewer)
+- maim and scrot (for screenshot)
 - zathura (pdf viewer)
 
