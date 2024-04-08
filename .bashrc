@@ -106,8 +106,9 @@ alias pdf='zathura'
 # youtube-dlp
 # -----------------------------------------------------
 
-alias da='cd /home/ezzobir/Downloads/output_audio; yt-dlp -x --audio-format mp3' 
-alias dap='cd /home/ezzobir/Downloads/output_audio; yt-dlp -x --audio-format mp3 -o "%(title)s.%(ext)s"'
+alias da='yt-dlp -x --audio-format mp3' 
+alias dap='yt-dlp -x --audio-format mp3 -o "%(title)s.%(ext)s"'
+alias dac='yt-dlp --extract-audio --audio-format mp3 --ignore-errors'
 alias dv='yt-dlp -f mp4'
 alias dvp='yt-dlp -o "%(playlist_index)s_%(title)s.%(ext)s" -f mp4 --yes-playlist'
 
