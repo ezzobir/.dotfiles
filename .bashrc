@@ -19,7 +19,7 @@ export EDITOR=vim
 # This for rofi
 # -----------------------------------------------------
 
-export LC_ALL=C.UTF-8
+# export LC_ALL=C.UTF-8
 
 # -----------------------------------------------------
 # pacman
@@ -147,4 +147,4 @@ function yy() {
 # Use Starship
 # -----------------------------------------------------
 
-# eval "$(starship init bash)"
+eval "$(starship init bash)"

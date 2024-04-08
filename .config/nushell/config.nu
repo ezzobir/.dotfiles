@@ -957,3 +957,5 @@ def --env yy [...args] {
 	}
 	rm -fp $tmp
 }
+
+use ~/.cache/starship/init.nu
