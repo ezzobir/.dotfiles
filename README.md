@@ -13,7 +13,7 @@ I don't use a desktop envirenment but I use [i3](https://i3wm.org/) window manag
 
 ## My Text Editor
 
-I use both emacs(spacemacs) and vim(spacevim) for editing code (and writing documents using LaTeX)
+I use both emacs(spacemacs) and vim(spacevim) for editing code (and writing documents using [Tpyst](https://typst.app/home)([LaTeX](https://latex-project.org) Alternative))
 
 ## Screenshots
 
