@@ -32,6 +32,9 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
 - [zellij](https://zellij.dev/) (terminal multiplexer)
 - [nushell](http://www.nushell.sh/) (my shell) I used with [Bash](https://www.gnu.org/software/bash/)
 - [starship]() (shell prompt)
+- App launcher
+    - [rofi](https://github.com/davatorium/rofi) (on X11)
+    - [wofi](https://hg.sr.ht/~scoopta/wofi) (on Wayland)
 - [firefox](https://www.mozilla.org/en-US/firefox/) and [qutebrowser](https://qutebrowser.org/) (browser)
 - [bitwarden]() (password manager)
 - [neomutt](https://neomutt.org/) (email client)
