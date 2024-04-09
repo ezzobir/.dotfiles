@@ -13,7 +13,7 @@ I don't use a desktop envirenment but I use [i3](https://i3wm.org/) window manag
 
 ## My Text Editor
 
-I use both emacs(spacemacs) and vim(spacevim) for editing code (and writing documents using [Tpyst](https://typst.app/home)([LaTeX](https://latex-project.org) Alternative))
+I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://develop.spacemacs.org/)) and [neovim](https://neovim.io/) ([spacevim](https://spacevim.org/)) for editing code (and writing documents using [Tpyst](https://typst.app/home) ([LaTeX](https://latex-project.org) Alternative))
 
 ## Screenshots
 
@@ -27,16 +27,22 @@ I use both emacs(spacemacs) and vim(spacevim) for editing code (and writing docu
 
 ## Other programms I use
 
-- alacritty (terminal emulator)
-- yazi (terminal file manager)
-- zellij (terminal multiplexer)
-- firefox and qutebrowser (browser)
-- neomutt (email client)
-- mpv (video player)
+- [alacritty](https://alacritty.org/) (terminal emulator)
+- [yazi](https://yazi-rs.github.io/) (terminal file manager)
+- [zellij](https://zellij.dev/) (terminal multiplexer)
+- [nushell](http://www.nushell.sh/) (my shell) I used with [Bash](https://www.gnu.org/software/bash/)
+- [starship]() (shell prompt)
+- [firefox](https://www.mozilla.org/en-US/firefox/) and [qutebrowser](https://qutebrowser.org/) (browser)
+- [bitwarden]() (password manager)
+- [neomutt](https://neomutt.org/) (email client)
+- [mpv](https://mpv.io/) (video player)
 - [mpd](https://github.com/MusicPlayerDaemon/MPD)+[mpc](https://github.com/MusicPlayerDaemon/mpc)+[ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)+[mpDris2](https://github.com/eonpatapon/mpDris2) (audio player)
-- feh and nsxiv (image viewer)
+- Image Viewer
+    - [feh](https://github.com/derf/feh) and [nsxiv](https://codeberg.org/nsxiv/nsxiv) ( On X11)
+    - [imv](https://sr.ht/~exec64/imv/) and [swayimg](https://github.com/artemsen/swayimg) (On Wayland)
 - Screenshot
     - [maim](https://github.com/naelstrof/maim) and [scrot](https://github.com/resurrecting-open-source-projects/scrot) (for screenshot on X11)
     - [grim](https://sr.ht/~emersion/grim/) and [slurp](https://github.com/emersion/slurp) (for screenshot on Wayland)
 - [zathura](https://pwmt.org/projects/zathura/) and [sioyek](https://sioyek.info/) (pdf viewer)
+- [sc-im](https://github.com/andmarti1424/sc-im) (for spreadsheets)
 
