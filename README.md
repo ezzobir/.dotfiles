@@ -35,6 +35,8 @@ I use both emacs(spacemacs) and vim(spacevim) for editing code (and writing docu
 - mpv (video player)
 - [mpd](https://github.com/MusicPlayerDaemon/MPD)+[mpc](https://github.com/MusicPlayerDaemon/mpc)+[ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)+[mpDris2](https://github.com/eonpatapon/mpDris2) (audio player)
 - feh and nsxiv (image viewer)
-- maim and scrot (for screenshot)
+- Screenshot
+    - [maim](https://github.com/naelstrof/maim) and [scrot](https://github.com/resurrecting-open-source-projects/scrot) (for screenshot on X11)
+    - [grim](https://sr.ht/~emersion/grim/) and [slurp](https://github.com/emersion/slurp) (for screenshot on Wayland)
 - [zathura](https://pwmt.org/projects/zathura/) and [sioyek](https://sioyek.info/) (pdf viewer)
 
