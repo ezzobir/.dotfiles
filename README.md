@@ -1,11 +1,13 @@
 # Dotfiles
-This is my dotfiles for my programms that I use
+This is my dotfiles for programms that I use
 
 ## My OS
 
 I use [Arch Linux](https://archlinux.org/).
 
-Other Distribution I Love: [Void Linux](https://voidlinux.org/) and [Gnu Guix System](https://guix.gnu.org/).
+Other Linux Distribution I Love: [Void Linux](https://voidlinux.org/) and [Gnu Guix System](https://guix.gnu.org/).
+
+In BSD familly I use: [FreeBSD](https://www.freebsd.org/)
 
 ## Desktop Envirenment
 
