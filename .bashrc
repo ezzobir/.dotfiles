@@ -130,6 +130,11 @@ alias cw='DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/
 
 set -o vi
 
+# -----------------------------------------------------
+# for rofi scripts
+# -----------------------------------------------------
+
+export PATH=$HOME/.config/rofi/scripts:$PATH
 
 # -----------------------------------------------------
 # To Let yazi file manager change the directory 
