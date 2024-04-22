@@ -19,7 +19,7 @@ export EDITOR=vim
 # This for rofi
 # -----------------------------------------------------
 
-# export LC_ALL=C.UTF-8
+export LC_ALL=C.UTF-8
 
 # -----------------------------------------------------
 # pacman
@@ -90,11 +90,11 @@ alias la='ls -FAl'
 # EDIT CONFIG FILES
 # -----------------------------------------------------
 
-alias confa='nvim ~/.config/alacritty/alacritty.toml'
-alias confb='nvim ~/.bashrc'
-alias confi3='nvim ~/.config/i3/conf'
-alias confp='nvim ~/.config/picom/picom.conf'
-alias confq='nvim ~/.config/qtile/config.py'
+alias confa='vim ~/.config/alacritty/alacritty.toml'
+alias confb='vim ~/.bashrc'
+alias confi3='vim ~/.config/i3/config'
+alias confp='vim ~/.config/picom/picom.conf'
+alias confq='vim ~/.config/qtile/config.py'
 
 # -----------------------------------------------------
 # Use Zathura For PDF
@@ -129,12 +129,6 @@ alias cw='DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/
 # -----------------------------------------------------
 
 set -o vi
-
-# -----------------------------------------------------
-# for rofi scripts
-# -----------------------------------------------------
-
-export PATH=$HOME/.config/rofi/scripts:$PATH
 
 # -----------------------------------------------------
 # To Let yazi file manager change the directory 

@@ -52,7 +52,9 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty -e nu
+
 
 # kill focused window
 bindsym $mod+q kill
@@ -213,36 +215,8 @@ bindsym $mod+Shift+p move container to workspace $ws10
 bindsym $mod+Control+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Control+r restart
-# bindsym $mod+Control+c restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Control+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-# mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        # bindsym h resize shrink width 10 px or 10 ppt
-        # bindsym j resize grow height 10 px or 10 ppt
-        # bindsym k resize shrink height 10 px or 10 ppt
-        # bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        # bindsym Left resize shrink width 10 px or 10 ppt
-        # bindsym Down resize grow height 10 px or 10 ppt
-        # bindsym Up resize shrink height 10 px or 10 ppt
-        # bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        # bindsym Return mode "default"
-        # bindsym Escape mode "default"
-        # bindsym $mod+r mode "default"
-# }
-
-# bindsym $mod+r mode "resize"
 
 bindsym $mod+Control+h resize shrink width 10 px or 10 ppt
 bindsym $mod+Control+j resize grow height 10 px or 10 ppt
@@ -255,57 +229,8 @@ bindsym $mod+Control+Down resize grow height 10 px or 10 ppt
 bindsym $mod+Control+Up resize shrink height 10 px or 10 ppt
 bindsym $mod+Control+Right resize grow width 10 px or 10 ppt
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command i3status
-#         position top
-#         height 18
-#         mode invisible
-#         modifier none
-#         strip_workspace_numbers yes
-#       # padding top[px] right[px] bottom[px] left[px]
-#         padding 1px 1px 1px 0
-#         colors{
-#             background #1e1e1e
-#         }
-# }
-
-# Toggle bar visibility with Mod key + M
-# bindsym $mod+m bar mode toggle
-#################### Polybar ##############################
-# bindsym $mod+m exec --no-startup-id $HOME/.config/polybar/launch.sh
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-###########################################################
-
-# borders
-# for_window [all] border pixel 3
-# smart_borders on
-
-# gaps
-# gaps inner 7
-# smart_gaps on
-
-
-bindsym $mod+Control+p exec firefox
-bindsym $mod+Control+o exec telegram-desktop
-bindsym $mod+Control+i exec emacs
-bindsym $mod+Control+u exec AppFlowy
-bindsym $mod+Control+y exec pomatez
-
-## mode "mode_launcher" {
-##     bindsym p exec firefox
-##     bindsym o exec telegram-desktop
-##     bindsym i exec emacs
-##     bindsym u exec AppFlowy
-##     bindsym y exec pomatez
-## 
-##     bindsym Escape mode "default"
-##     bindsym Return mode "default"
-## }
-## bindsym $mod+n mode "mode_launcher"
-
-
+# assign apps to workspaces
+#------------------------------------------------------
 for_window [class="kitty"] move to workspace $ws1
 for_window [class="Emacs"] move to workspace $ws2
 for_window [class="firefox"] move to workspace $ws3
@@ -326,21 +251,10 @@ for_window [class="kdenlive"] move to workspace $ws8
 for_window [class="mpv"] move to workspace $ws9
 for_window [class="vlc"] move to workspace $ws9
 for_window [class="okular"] move to workspace $ws10
-
-# Autostart picom when starting the i3 window manager
-exec_always --no-startup-id picom -b
-
-exec firefox
-exec telegram-desktop
-exec AppFlowy
-exec pomatez
-# exec emacs
-# exec okular
-exec --no-startup-id launcher_t2
-
+#------------------------------------------------------
 
 # start gruvbox theme
-##############################################################################
+#-----------------------------------------------------------
 
 # Color binds
 set $col_focused #e78a4e
@@ -356,11 +270,11 @@ client.focused           $col_focused           $col_focused           $col_text
 client.focused_inactive  $col_focused_inactive  $col_focused_inactive  $col_text_dark   $col_focused_inactive  $col_focused_inactive
 client.unfocused         $col_unfocused_border  $col_unfocused         $col_text_light  $col_unfocused         $col_unfocused
 client.urgent            $col_text_dark         $col_urgent            $col_text_dark   $col_urgent            $col_urgent
-##############################################################################
+#-----------------------------------------------------------
 # end gruvbox theme
 
 #start of window title bars & borders section
-##############################################################################
+#-----------------------------------------------------------
 
 # Titlebar
 title_align center
@@ -373,23 +287,49 @@ smart_borders on
 smart_gaps on
 gaps inner 4
 gaps outer 3
-##############################################################################
+#-----------------------------------------------------------
 #end of window title bars & borders section
 
 # start rofi
-##############################################################################
-bindsym $mod+d exec --no-startup-id launcher_t2
-bindsym $mod+x exec --no-startup-id powermenu_t1
-##############################################################################
+#-----------------------------------------------------------
+# bindsym $mod+d exec --no-startup-id launcher_t2
+bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/launchers/type-2/launcher.sh
+# bindsym $mod+x exec --no-startup-id powermenu_t1
+bindsym $mod+x exec --no-startup-id $HOME/.config/rofi/powermenu/type-1/powermenu.sh
+#-----------------------------------------------------------
 # end rofi
 
 # start polybar
-##########################################################
+#-----------------------------------------------------------
 bindsym $mod+m exec --no-startup-id $HOME/scripts/toggle_polybar.sh
-###########################################################
+#-----------------------------------------------------------
 # end polybar
 
 # Screenshot
-###########################################################
+#-----------------------------------------------------------
 bindsym Print exec --no-startup-id $HOME/.config/rofi/applets/bin/screenshot.sh
-###########################################################
+#-----------------------------------------------------------
+
+# keybinding for launch apps
+#-----------------------------------------------------------
+bindsym $mod+Control+p exec firefox
+bindsym $mod+Control+o exec telegram-desktop
+bindsym $mod+Control+i exec emacs
+bindsym $mod+Control+u exec AppFlowy
+bindsym $mod+Control+y exec pomatez
+#-----------------------------------------------------------
+
+# autostart
+#-----------------------------------------------------------
+# Autostart picom when starting the i3 window manager
+exec_always --no-startup-id picom -b
+
+exec firefox
+exec telegram-desktop
+exec AppFlowy
+exec pomatez
+# exec emacs
+# exec okular
+# exec --no-startup-id launcher_t2
+exec --no-startup-id $HOME/.config/rofi/launchers/type-2/launcher.sh
+#-----------------------------------------------------------
