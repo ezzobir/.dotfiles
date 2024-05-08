@@ -29,19 +29,33 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
 
 ## Other programms I use
 
-- [alacritty](https://alacritty.org/) (terminal emulator)
-- [yazi](https://yazi-rs.github.io/) (terminal file manager)
-- [zellij](https://zellij.dev/) (terminal multiplexer)
-- [nushell](http://www.nushell.sh/) (my shell) I used with [Bash](https://www.gnu.org/software/bash/)
-- [starship](https://starship.rs/) (shell prompt)
+- Terminal emulator
+    - [alacritty](https://alacritty.org/)
+- Terminal file manager
+    - [yazi](https://yazi-rs.github.io/) 
+- Terminal multiplexer
+    - [zellij](https://zellij.dev/) 
+- Shell
+    - [nushell](http://www.nushell.sh/) (my shell) I used with [Bash](https://www.gnu.org/software/bash/)
+- Shell Prompt
+    - [starship](https://starship.rs/) 
 - App launcher
     - [rofi](https://github.com/davatorium/rofi) (on X11)
     - [wofi](https://hg.sr.ht/~scoopta/wofi) (on Wayland)
-- [firefox](https://www.mozilla.org/en-US/firefox/) and [qutebrowser](https://qutebrowser.org/) (browser)
-- [bitwarden](https://bitwarden.com/) (password manager)
-- [neomutt](https://neomutt.org/) (email client)
-- [mpv](https://mpv.io/) (video player)
-- [mpd](https://github.com/MusicPlayerDaemon/MPD)+[mpc](https://github.com/MusicPlayerDaemon/mpc)+[ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)+[mpDris2](https://github.com/eonpatapon/mpDris2) (audio player)
+- Browser 
+    - [firefox](https://www.mozilla.org/en-US/firefox/)
+    - [qutebrowser](https://qutebrowser.org/) (browser)
+- Password Manager
+    - [bitwarden](https://bitwarden.com/) 
+- Note taking app
+    - [AppFlowy](https://appflowy.io/)
+- Email Client
+    - [neomutt](https://neomutt.org/) 
+- Video player
+    - [mpv](https://mpv.io/)
+    - [vlc](https://www.videolan.org/vlc/)
+- Audio player
+    - [mpd](https://github.com/MusicPlayerDaemon/MPD)+[mpc](https://github.com/MusicPlayerDaemon/mpc)+[ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)+[mpDris2](https://github.com/eonpatapon/mpDris2) (audio player)
 - Image Viewer
     - [feh](https://github.com/derf/feh) and [nsxiv](https://codeberg.org/nsxiv/nsxiv) ( On X11)
     - [imv](https://sr.ht/~exec64/imv/) and [swayimg](https://github.com/artemsen/swayimg) (On Wayland)
@@ -60,5 +74,3 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
 - Office suite
     - [LibreOffice](https://www.libreoffice.org/)
     - [OnlyOffice](https://www.onlyoffice.com/)
-- Note taking app
-    - [AppFlowy](https://appflowy.io/)
