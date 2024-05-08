@@ -4,7 +4,7 @@ This is my dotfiles for programms that I use
 ---
 
 Note:
-All programs mentioned in this repository are FOSS (free and open source)
+All programs mentioned in this repository are FOSS (Free and Open Source Softwares)
 
 ---
 
