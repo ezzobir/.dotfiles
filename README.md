@@ -2,7 +2,10 @@
 This is my dotfiles for programms that I use
 
 ---
-Note: All programs mentioned in this repository are free and open source
+
+Note:
+All programs mentioned in this repository are free and open source
+
 ---
 
 ## My OS
