@@ -15,7 +15,7 @@ I don't use a desktop envirenment but I use [i3](https://i3wm.org/) window manag
 
 ## My Text Editor
 
-I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://develop.spacemacs.org/)) and [neovim](https://neovim.io/) ([spacevim](https://spacevim.org/)) for editing code (and writing documents using [Tpyst](https://typst.app/home) ([LaTeX](https://latex-project.org) Alternative))
+I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://develop.spacemacs.org/)) and [neovim](https://neovim.io/) ([spacevim](https://spacevim.org/)) for editing code (and writing documents using [Tpyst](https://typst.app/home) and [LaTeX](https://latex-project.org))
 
 ## Screenshots
 
@@ -48,6 +48,17 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
 - Screenshot
     - [maim](https://github.com/naelstrof/maim) and [scrot](https://github.com/resurrecting-open-source-projects/scrot) (for screenshot on X11)
     - [grim](https://sr.ht/~emersion/grim/) and [slurp](https://github.com/emersion/slurp) (for screenshot on Wayland)
-- [zathura](https://pwmt.org/projects/zathura/) and [sioyek](https://sioyek.info/) (pdf viewer)
-- [sc-im](https://github.com/andmarti1424/sc-im) (for spreadsheets)
-
+- PDF viewer
+    - [sioyek](https://sioyek.info/)
+    - [zathura](https://pwmt.org/projects/zathura/)
+- Spreadsheets in terminal
+    - [sc-im](https://github.com/andmarti1424/sc-im)
+- Typesetting System (for mathematics)
+    - [typst](https://typst.app/)
+    - [LaTeX](https://www.latex-project.org/)
+    - [LyX](https://www.lyx.org/) front-end for LaTeX
+- Office suite
+    - [LibreOffice](https://www.libreoffice.org/)
+    - [OnlyOffice](https://www.onlyoffice.com/)
+- Note taking app
+    - [AppFlowy](https://appflowy.io/)
