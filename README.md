@@ -1,6 +1,10 @@
 # Dotfiles
 This is my dotfiles for programms that I use
 
+---
+Note: All programs mentioned in this repository are free and open source
+---
+
 ## My OS
 
 I use [Arch Linux](https://archlinux.org/).
@@ -24,13 +28,7 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
 - here i3 wm running spacemacs
 ![screenshot for i3  wm running spacemacs](./screenshots/spacemacs.png "i3 running spacemacs")
 
-
-
-
 ## Other programms I use
----
-Note: All programs mentioned in this repository are free and open source
----
 
 - Terminal emulator
     - [alacritty](https://alacritty.org/)
