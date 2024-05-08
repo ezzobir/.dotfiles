@@ -28,6 +28,9 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
 
 
 ## Other programms I use
+---
+Note: All programs mentioned in this repository are free and open source
+---
 
 - Terminal emulator
     - [alacritty](https://alacritty.org/)
