@@ -36,7 +36,7 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
 - Terminal multiplexer
     - [zellij](https://zellij.dev/) 
 - Shell
-    - [nushell](http://www.nushell.sh/) (my shell) I used with [Bash](https://www.gnu.org/software/bash/)
+    - [Bash](https://www.gnu.org/software/bash/) and [nushell](http://www.nushell.sh/)
 - Shell Prompt
     - [starship](https://starship.rs/) 
 - App launcher
