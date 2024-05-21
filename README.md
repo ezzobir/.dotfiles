@@ -48,7 +48,7 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
     - [wofi](https://hg.sr.ht/~scoopta/wofi) (on Wayland)
 - Browser 
     - [firefox](https://www.mozilla.org/en-US/firefox/)
-    - [qutebrowser](https://qutebrowser.org/) (browser)
+    - [qutebrowser](https://qutebrowser.org/)
 - Password Manager
     - [bitwarden](https://bitwarden.com/) 
 - Note taking app
@@ -59,7 +59,7 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
     - [mpv](https://mpv.io/)
     - [vlc](https://www.videolan.org/vlc/)
 - Audio player
-    - [mpd](https://github.com/MusicPlayerDaemon/MPD)+[mpc](https://github.com/MusicPlayerDaemon/mpc)+[ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)+[mpDris2](https://github.com/eonpatapon/mpDris2) (audio player)
+    - [mpd](https://github.com/MusicPlayerDaemon/MPD)+[mpc](https://github.com/MusicPlayerDaemon/mpc)+[ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)+[mpDris2](https://github.com/eonpatapon/mpDris2)
 - Image Viewer
     - [feh](https://github.com/derf/feh) and [nsxiv](https://codeberg.org/nsxiv/nsxiv) ( On X11)
     - [imv](https://sr.ht/~exec64/imv/) and [swayimg](https://github.com/artemsen/swayimg) (On Wayland)
@@ -71,7 +71,7 @@ I use both [emacs](https://www.gnu.org/software/emacs/) ([spacemacs](https://dev
     - [zathura](https://pwmt.org/projects/zathura/)
 - Spreadsheets in terminal
     - [sc-im](https://github.com/andmarti1424/sc-im)
-- Typesetting System (for mathematics)
+- Typesetting System (for writing documents specially mathematics)
     - [typst](https://typst.app/)
     - [LaTeX](https://www.latex-project.org/)
     - [LyX](https://www.lyx.org/) front-end for LaTeX
