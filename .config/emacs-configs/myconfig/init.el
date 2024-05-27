@@ -142,7 +142,11 @@
     "wj" '(windmove-down :which-key "move down")
     "wk" '(windmove-up :which-key "move up")
     "wd" '(delete-window :which-key "delete window")
-    "wM" '(delete-other-windows :which-key "delete other windows")))
+    "wM" '(delete-other-windows :which-key "delete other windows"))
+
+  ;; Define keybinding to switch to last buffer
+  (my/leader-keys
+    "SPC" '(evil-switch-to-windows-last-buffer :which-key "last buffer")))
 
 ;; Ensure windmove commands are available
 (windmove-default-keybindings)
@@ -255,10 +259,23 @@ to IT for use in the THEN and ELSE clauses"
 
 ;; Rust
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package rust-mode
+  :ensure t)
+
 (use-package rust-ts-mode
   :ensure t
-  :mode("\\.rs\\'")
-  )
+  :mode ("\\.rs\\'" . rust-ts-mode)
+  :hook ((rust-ts-mode . eglot-ensure)
+	 (rust-ts-mode . company-mode))
+  :bind (:map rust-ts-mode-map
+	      ("C-c C-d" . rust-dbg-wrap-or-unwrap)
+	      ("<f6>" . eglot-format))
+  :config
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/lib/rustup/bin"))
+  (add-to-list 'exec-path "/usr/lib/rustup/bin"))
 
+(use-package company
+  :ensure t)
+
+(global-set-key (kbd "<f5>") #'recompile)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-

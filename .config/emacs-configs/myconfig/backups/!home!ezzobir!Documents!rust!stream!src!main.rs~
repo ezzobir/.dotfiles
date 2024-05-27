@@ -1,0 +1,31 @@
+use std::error::Error;
+
+struct Employee {
+    name: String,
+    id: i64,
+}
+
+impl Employee {
+    fn new(name: String, id: i64) -> Employee {
+        let employee = Employee { name, id };
+
+        return employee;
+    }
+
+    fn name(&self) -> &str {
+        &(self.name)
+    }
+
+    fn id(&self) -> i64 {
+        self.id
+    }
+}
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let employee = Employee::new("Ezzobir".to_string(), 30);
+
+    println!("employee => name: {} id: {}", employee.name, employee.id());
+
+    Ok(())
+}
+
