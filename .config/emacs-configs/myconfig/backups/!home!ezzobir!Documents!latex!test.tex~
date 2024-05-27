@@ -1,0 +1,13 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage[margin=2cm]{geometry}
+
+\begin{document}
+    this is a document.
+    \begin{figure}[ht]
+      \centering
+      \includegraphics[width=.5\textwidth]{boowomp.jpg}
+      \caption{image caption}
+      \label{fig:boowomp}
+    \end{figure}
+\end{document}

@@ -25,12 +25,12 @@
 ;; To Make Your Folder Config Clean
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq backup-directory-alist
-      `(("." . "/home/ezzobir/my_files/.dotfiles/.config/emacs-configs/myconfig//backups")))
+      `(("." . "~/my_files/.dotfiles/.config/emacs-configs/myconfig//backups")))
 
-(setq auto-save-file-name-transforms
-      `((".*" "/home/ezzobir/my_files/.dotfiles/.config/emacs-configs/myconfig/auto-save-list/" t)))
+; (setq auto-save-file-name-transforms
+;       `((".*" "~/my_files/.dotfiles/.config/emacs-configs/myconfig/auto-save-list/" t)))
 
-(setq custom-file "/home/ezzobir/my_files/.dotfiles/.config/emacs-configs/myconfig/emacs-custom.el")
+(setq custom-file "~/my_files/.dotfiles/.config/emacs-configs/myconfig/emacs-custom.el")
 (load custom-file t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -40,6 +40,11 @@
   :ensure t
   :config
   (vertico-mode 1))
+
+(use-package marginalia
+  :ensure t
+  :config
+  (marginalia-mode 1))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Gruvbox Theme
@@ -115,13 +120,14 @@
     "fs" '(save-buffer :which-key "save file")
     "fe" '(:ignore t :which-key "emacs")
     "fei" '(open-my-init-file :which-key "open my init.el")
-    "fer" '(reload-my-init-file :which-key "reload my init.el"))
+    "fer" '(reload-my-init-file :which-key "reload my init.el")
+    "fr" '(recentf-open-files :which-key "recent files"))
 
   ;; Define buffer management keybindings
   (my/leader-keys
     "b"  '(:ignore t :which-key "buffer")
     "bd" '(kill-this-buffer :which-key "delete buffer")
-    "bb" '(ibuffer :which-key "list buffers")
+    "bb" '(switch-to-buffer :which-key "list buffers")
     "bn" '(next-buffer :which-key "next buffer")
     "bp" '(previous-buffer :which-key "previous buffer")
     "bM" '(delete-other-buffers :which-key "delete other buffers"))
@@ -156,8 +162,103 @@
 
 ;; LaTeX
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my/latex-mode-hook ()
+  (advice-add #'TeX-command-master :before (lambda (&rest r) (save-buffer)))
+  (push (list 'output-pdf "Zathura") TeX-view-program-selection))
+
 (use-package auctex
   :ensure t
   :defer t
+  :hook (LaTeX-mode . my/latex-mode-hook)
+  :bind (:map LaTeX-mode-map
+	      ("C-c b" . my/vertico-bibtex))
   )
+
+(defun my/bibtex-generate-autokey (&rest r)
+    (let* ((names (bibtex-autokey-get-names))
+	   (year (bibtex-autokey-get-year))
+	   (title (bibtex-autokey-get-title)))
+      (capitalize (format "%s%s" names year))))
+(advice-add #'bibtex-generate-autokey :around #'my/bibtex-generate-autokey)
+
+(defun my/vertico-bibtex--get-field (key candidate)
+  "return the field matching KEY in CANDIDATE"
+  (alist-get key (cdr candidate) nil nil #'string=))
+
+(defun vertico-bibtex--maybe-truncate (field len)
+  (if field
+      (substring field 0 (min len (length field)))
+    field))
+
+(defun my/vertico-bibtex--build-map (candidates)
+  (mapcar
+   (lambda (cand)
+     (let* ((key (my/vertico-bibtex--get-field "=key=" cand))
+	    (title (vertico-bibtex--maybe-truncate
+		    (my/vertico-bibtex--get-field "title" cand)
+		    35))
+	    (author (vertico-bibtex--maybe-truncate
+		     (aif (my/vertico-bibtex--get-field "author" cand)
+			  (string-replace " and " ", " it) it)
+		     40))
+	    (book (my/vertico-bibtex--get-field "booktitle" cand))
+	    (journal (my/vertico-bibtex--get-field "journal" cand)))
+       `(,key . (:title ,title :author ,author :journal ,(or journal book)))))
+   candidates))
+
+(defun my/vertico-bibtex (&optional arg)
+  "insert a bibtex citation at point using `completing-read`. if
+ARG is non-nil, refresh the bibtex-completion cache"
+  (interactive "P")
+  (when arg
+    (bibtex-completion-clear-cache))
+  (bibtex-completion-init)
+  (let* ((candidates (bibtex-completion-candidates))
+	 (map (my/vertico-bibtex--build-map candidates))
+	 (keys (mapcar #'car map))
+	 (completion-extra-properties
+	  (list
+	   :annotation-function
+	   (lambda (key)
+	     (let ((obj (alist-get key map nil nil #'string=)))
+	       (marginalia--fields
+		((plist-get obj :title) :width 35 :truncate 0.5 :face 'marginalia-string)
+		((plist-get obj :author) :width 40 :truncate 0.5 :face 'marginalia-documentation)
+		((plist-get obj :journal) :width 30 :truncate 0.5 :face 'marginalia-value))))))
+	 (selection (completing-read "Insert citation: " keys)))
+    (when selection
+      (insert selection))))
+
+;; this shouldn't be needed but not working for some reason
+(use-package biblio-core
+  :ensure t)
+
+(use-package biblio
+  :ensure t)
+
+(use-package bibtex-completion
+  :ensure t
+  :config
+  (setq bibtex-completion-bibliography "~/my_files/research/library/refs.bib"
+	bibtex-completion-library-path "~/my_files/research/library"
+	bibtex-completion-pdf-open-function
+	(lambda (fpath)
+	  (call-process "zathura" nil 0 nil fpath))
+	bibtex-completion-additional-search-fields '(journal booktitle)))
+
+(defmacro aif (cnd then else)
+  "anaphoric if from paul graham's on lisp. bind the result of CND
+to IT for use in the THEN and ELSE clauses"
+  `(let ((it ,cnd))
+     (if it ,then ,else))) 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Rust
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package rust-ts-mode
+  :ensure t
+  :mode("\\.rs\\'")
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
