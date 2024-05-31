@@ -121,7 +121,15 @@
     "fe" '(:ignore t :which-key "emacs")
     "fei" '(open-my-init-file :which-key "open my init.el")
     "fer" '(reload-my-init-file :which-key "reload my init.el")
+    "fj" '(dired-jump :which-key "dired")
     "fr" '(recentf-open-files :which-key "recent files"))
+
+  ;; Define file management keybindings
+  (my/leader-keys
+    "d"  '(:ignore t :which-key "dired")
+    "dd"  '(dired :which-key "dired")
+    "do" '(dired-other-window :which-key "dired other window")
+    "dh" '(open-dired-home :which-key "dired home"))
 
   ;; Define buffer management keybindings
   (my/leader-keys
@@ -162,6 +170,29 @@
   "Reload the user's init file."
   (interactive)
   (load-file "/home/ezzobir/my_files/.dotfiles/.config/emacs-configs/myconfig/init.el"))
+
+;; Function to open home directory in dired
+(defun open-dired-home ()
+  "Open Dired in the home directory."
+  (interactive)
+  (dired "~"))
+
+;; Keybinding for dired mode
+(general-define-key
+    :states '(normal)
+    :keymaps 'dired-mode-map
+    "$" 'evil-end-of-line
+    "^" 'evil-first-non-blank
+    "v" 'evil-visual-char)
+(general-define-key
+    :states '(normal visual)
+    :keymaps 'dired-mode-map
+    :prefix "SPC"
+    "SPC" '(evil-switch-to-windows-last-buffer :which-key "last buffer")
+    "bb"  '(switch-to-buffer :which-key "list buffers")
+    "bn"  '(next-buffer :which-key "next buffer")
+    "bp"  '(previous-buffer :which-key "previous buffer")
+    "bd"  '(kill-this-buffer :which-key "kill buffer"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; LaTeX
