@@ -968,13 +968,12 @@ alias confa = nvim ~/.config/alacritty/alacritty.toml
 alias confb = nvim ~/.bashrc
 alias confi3 = nvim ~/.config/i3/config
 alias confp = nvim ~/.config/picom/picom.conf
-alias confq = nvim ~/.config/qtile/config.py
 
 # -----------------------------------------------------
-# Use Zathura For PDF
+# Use Sioyek For PDF
 # -----------------------------------------------------
 
-alias pdf = zathura
+alias pdf = sioyek --new-window
 
 # -----------------------------------------------------
 # youtube-dlp

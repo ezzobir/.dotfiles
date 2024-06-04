@@ -94,13 +94,12 @@ alias confa='vim ~/.config/alacritty/alacritty.toml'
 alias confb='vim ~/.bashrc'
 alias confi3='vim ~/.config/i3/config'
 alias confp='vim ~/.config/picom/picom.conf'
-alias confq='vim ~/.config/qtile/config.py'
 
 # -----------------------------------------------------
-# Use Zathura For PDF
+# Use Sioyek For PDF
 # -----------------------------------------------------
 
-alias pdf='zathura'
+alias pdf='sioyek --new-window'
 
 # -----------------------------------------------------
 # youtube-dlp
@@ -122,7 +121,7 @@ alias yt='ytfzf -t'
 # Change wallpaper using feh
 # -----------------------------------------------------
 
-alias cw='DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/*.{png,jpg}'
+alias cw='DISPLAY=:0 feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers/*.{jpg,png}'
 
 # -----------------------------------------------------
 # Use Vi Mode
